@@ -1,67 +1,259 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Guardianc by psafx</title>
+    <title>Guardian Cross</title>
+    <meta charset='utf-8'>
+    <link href='css/normalize.css' rel='stylesheet'>
+    <link href='css/chosen.css' rel='stylesheet'>
+<style>
+* {
+  font: 13px 'Segoe UI',Tahoma,Verdana,Arial,sans-serif;
+}
+body {
+  margin: 20px 0 0 20px;
+}
+#g_name,
+#g_type {
+  float: left;
+  width: 163px;
+}
+.guardian-wrapper {
+  padding: 5px;
+}
+.select-header {
+  float: left;
+  font-weight: 700;
+  width: 60px;
+  height: 25px;
+}
+.g_stat {
+  clear: both;
+  list-style: none;
+  height: 20px;
+  padding-left: 20px;
+  margin: 5px 0;
+}
+.g_stat_label {
+  float: left;
+  display: inline-block;
+  font-weight: 700;
+  width: 40px;
+}
+.g_stat_value {
+  float: left;
+  display: inline-block;
+  width: 50px;
+  text-align: right;
+}
+.g_stat_header {
+  padding: 1px 2px 2px 0;
+  font-weight: 700;
+}
+.cool {
+  padding: 1px 2px 2px 0;
+  background-color: #eee;
+}
+.stat {
+  padding: 1px 2px 2px 0;
+  margin-left: 3px;
+  background-color: #eee;
+}
+.max {
+  padding: 1px 2px 2px 0;
+  margin-left: 3px;
+  background-color: #eeb588;
+}
+#log {
+  clear: both;
+  margin-top: 20px;
+}
+</style>
+    <script src="//code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
+    <script src="js/chosen.jquery.min.js"></script>
+<script>
+  var g_name = [
+        {"g_id":"000001", "g_name":"Bahamut"},
+        {"g_id":"100011", "g_name":"Almighty Leviathan"},
+        {"g_id":"100012", "g_name":"Mighty Leviathan"},
+        {"g_id":"100021", "g_name":"Almighty Titan"},
+        {"g_id":"100022", "g_name":"Mighty Titan"},
+        {"g_id":"100031", "g_name":"Almighty Ifrit"},
+        {"g_id":"100032", "g_name":"Mighty Ifrit"},
+        {"g_id":"040012", "g_name":"Leviathan"},
+        {"g_id":"040003", "g_name":"Titan"},
+        {"g_id":"040007", "g_name":"Vampire Matron"},
+        {"g_id":"040011", "g_name":"Phoenix"},
+        {"g_id":"040002", "g_name":"Valkyrie"},
+        {"g_id":"040001", "g_name":"Ifrit"},
+        {"g_id":"040004", "g_name":"Lightning Lord"},
+        {"g_id":"040008", "g_name":"Juggernaut"},
+        {"g_id":"040009", "g_name":"Dominion"},
+        {"g_id":"040010", "g_name":"Mephistopheles"},
+      ],
+      g_type = [
+        {"t_id":"Cool", "t_stat":"1 1 1 1 1 1"},
+        {"t_id":"Ace", "t_stat":"1.1 1.1 1.1 1.1 1.1 1.1"},
+        {"t_id":"Chaotic", "t_stat":"1.1 1 1 1 1 0.9"},
+        {"t_id":"Sexy", "t_stat":"0.9 1.1 1 1 1 1"},
+        {"t_id":"Powerful", "t_stat":"1 1 1.1 1 0.9 1"},
+        {"t_id":"Brave", "t_stat":"1 0.9 1 1.1 1 1"},
+        {"t_id":"Fast", "t_stat":"1 1 1 0.9 1.1 1"},
+        {"t_id":"Intelligent", "t_stat":"1 1 0.9 1 1 1.1"}
+      ],
+      g_stat = [
+        {"g_id":"000001","lv1":"1020 1032 1134 978 1025 1050"},
+        {"g_id":"100011","lv1":"1090 1066 1260 1129 981 947"},
+        {"g_id":"100012","lv1":"1025 1015 1154 1080 900 920"},
+        {"g_id":"100021","lv1":"1400 1025 1070 1060 910 910"},
+        {"g_id":"100022","lv1":"1200 1025 1070 1060 910 910"},
+        {"g_id":"100031","lv1":"1060 1055 1134 1105 966 966"},
+        {"g_id":"100032","lv1":"1010 1005 1080 1050 920 920"},
+        {"g_id":"040012","lv1":"1025 1015 1050 1080 900 920"},
+        {"g_id":"040003","lv1":"1050 1025 1070 1060 910 910"},
+        {"g_id":"040007","lv1":"1008 1007 980 960 1008 1002"},
+        {"g_id":"040011","lv1":"952 934 980 1020 1084 1016"},
+        {"g_id":"040002","lv1":"912 1061 980 976 1039 1077"},
+        {"g_id":"040001","lv1":"1010 1005 1080 1050 920 920"},
+        {"g_id":"040004","lv1":"950 1002 1050 1030 1070 950"},
+        {"g_id":"040008","lv1":"850 868 1110 1150 852 880"},
+        {"g_id":"040009","lv1":"920 1020 1127 1068 1008 1148"},
+        {"g_id":"040010","lv1":"900 1138 940 950 976 1050"},
+        {"g_id":"040000","lv1":""},
+      ]
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+$(document).ready(function() {
+  var select = $('#g_name');
+  if (select.prop) {
+    var options = select.prop('options');
+  } else {
+    var options = select.attr('options');
+  }
+  $.each(g_name, function(index, value) {
+    options[options.length] = new Option(value['g_name'], value['g_id'])
+  })
+
+  var select = $('#g_type');
+  if (select.prop) {
+    var options = select.prop('options');
+  } else {
+    var options = select.attr('options');
+  }
+  $.each(g_type, function(index, value) {
+    options[options.length] = new Option(value['t_id'], value['t_id'])
+  })
+
+  var getStat_f = function() {
+    var g_id = $('#g_name').val(),
+      t_id = $('#g_type').val(),
+      stat_lv1 = '',
+      stat_multiplier = ''
+
+    for (var i = 0, j = g_stat.length; i < j; i++) {
+      if (g_id == g_stat[i]['g_id']) {
+        stat_lv1 = g_stat[i]['lv1']
+      }
+    }
+
+    if (t_id == '0') {
+      t_id = 'Cool'
+    }
+    for (var i = 0, j = g_type.length; i < j; i++) {
+      if (t_id == g_type[i]['t_id']) {
+        stat_multiplier = g_type[i]['t_stat']
+      }
+    }
+    var multiplier = stat_multiplier.split(' '),
+      lv1 = stat_lv1.split(' ')
+
+    /*
+      Lv1 * 2.5 = Lv60 (Cool)
+      Lv1 * 3.0 = Max
+      */
+    $('#cool_hp').html(Math.floor(lv1[0] * 2.5))
+    $('#cool_mp').html(Math.floor(lv1[1] * 2.5))
+    $('#cool_atk').html(Math.floor(lv1[2] * 2.5))
+    $('#cool_def').html(Math.floor(lv1[3] * 2.5))
+    $('#cool_agi').html(Math.floor(lv1[4] * 2.5))
+    $('#cool_wis').html(Math.floor(lv1[5] * 2.5))
+
+    $('#stat_hp').html(Math.floor(lv1[0] * 2.5 * multiplier[0]))
+    $('#stat_mp').html(Math.floor(lv1[1] * 2.5 * multiplier[1]))
+    $('#stat_atk').html(Math.floor(lv1[2] * 2.5 * multiplier[2]))
+    $('#stat_def').html(Math.floor(lv1[3] * 2.5 * multiplier[3]))
+    $('#stat_agi').html(Math.floor(lv1[4] * 2.5 * multiplier[4]))
+    $('#stat_wis').html(Math.floor(lv1[5] * 2.5 * multiplier[5]))
+
+    $('#max_hp').html(Math.floor(lv1[0] * 3.0 * multiplier[0]))
+    $('#max_mp').html(Math.floor(lv1[1] * 3.0 * multiplier[1]))
+    $('#max_atk').html(Math.floor(lv1[2] * 3.0 * multiplier[2]))
+    $('#max_def').html(Math.floor(lv1[3] * 3.0 * multiplier[3]))
+    $('#max_agi').html(Math.floor(lv1[4] * 3.0 * multiplier[4]))
+    $('#max_wis').html(Math.floor(lv1[5] * 3.0 * multiplier[5]))
+  }
+
+  $('#g_name').on('change', getStat_f).chosen()
+  $('#g_type').on('change', getStat_f).chosen()
+})
+</script>
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">Guardianc</h1>
-        <p class="header"></p>
-
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/psafx/guardianc/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/psafx/guardianc/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/psafx/guardianc">View On GitHub</a></li>
-        </ul>
-
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/psafx">psafx</a></p>
-
-
-      </header>
-      <section>
-        <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
+    <div class="guardian-wrapper">
+      <span class="select-header">Guardian</span>
+      <select id="g_name">
+        <option value="0" selected="selected">Guardian Name</option>
+      </select>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+    <div class="guardian-wrapper">
+      <span class="select-header">Type</span>
+      <select id="g_type">
+        <option value="0" selected="selected">Guardian Type</option>
+      </select>
+    </div>
+    <div class="guardian-wrapper">
+      <ul class="g_stat">
+        <li class="g_stat_label">&nbsp;</li>
+        <li class="g_stat_value"><span class="g_stat_header">Cool</span></li>
+        <li class="g_stat_value"><span class="g_stat_header">Stat</span></li>
+        <li class="g_stat_value"><span class="g_stat_header">Max</span></li>
+      </ul>
+      <ul class="g_stat">
+        <li class="g_stat_label">HP</li>
+        <li id="cool_hp" class="g_stat_value cool">0</li>
+        <li id="stat_hp" class="g_stat_value stat">0</li>
+        <li id="max_hp" class="g_stat_value max">0</li>
+      </ul>
+      <ul class="g_stat">
+        <li class="g_stat_label">MP</li>
+        <li id="cool_mp" class="g_stat_value cool">0</li>
+        <li id="stat_mp" class="g_stat_value stat">0</li>
+        <li id="max_mp" class="g_stat_value max">0</li>
+      </ul>
+      <ul class="g_stat">
+        <li class="g_stat_label">ATK</li>
+        <li id="cool_atk" class="g_stat_value cool">0</li>
+        <li id="stat_atk" class="g_stat_value stat">0</li>
+        <li id="max_atk" class="g_stat_value max">0</li>
+      </ul>
+      <ul class="g_stat">
+        <li class="g_stat_label">DEF</li>
+        <li id="cool_def" class="g_stat_value cool">0</li>
+        <li id="stat_def" class="g_stat_value stat">0</li>
+        <li id="max_def" class="g_stat_value max">0</li>
+      </ul>
+      <ul class="g_stat">
+        <li class="g_stat_label">AGI</li>
+        <li id="cool_agi" class="g_stat_value cool">0</li>
+        <li id="stat_agi" class="g_stat_value stat">0</li>
+        <li id="max_agi" class="g_stat_value max">0</li>
+      </ul>
+      <ul class="g_stat">
+        <li class="g_stat_label">WIS</li>
+        <li id="cool_wis" class="g_stat_value cool">0</li>
+        <li id="stat_wis" class="g_stat_value stat">0</li>
+        <li id="max_wis" class="g_stat_value max">0</li>
+      </ul>
+    </div>
+    <div id="log"></div>
   </body>
 </html>
