@@ -142,95 +142,95 @@ body {
         {"g_id":"040000","lv1":""},
       ]
 
-$(document).ready(function() {
-  var select = $('#g_name');
-  if (select.prop) {
-    var options = select.prop('options');
-  } else {
-    var options = select.attr('options');
-  }
-  $.each(g_name, function(index, value) {
-    if (value['g_id'] != '0') {
-      options[options.length] = new Option(value['g_name'], value['g_id'])
+  $(document).ready(function() {
+    var select = $('#g_name');
+    if (select.prop) {
+      var options = select.prop('options');
+    } else {
+      var options = select.attr('options');
     }
-  })
-
-  var select = $('#g_type');
-  if (select.prop) {
-    var options = select.prop('options');
-  } else {
-    var options = select.attr('options');
-  }
-  $.each(g_type, function(index, value) {
-    options[options.length] = new Option(value['t_id'], value['t_id'])
-  })
-
-  var getStat_f = function() {
-    var g_id = $('#g_name').val(),
-      t_id = $('#g_type').val(),
-      stat_lv1 = '',
-      stat_multiplier = ''
-
-    for (var i = 0, j = g_stat.length; i < j; i++) {
-      if (g_id == g_stat[i]['g_id']) {
-        stat_lv1 = g_stat[i]['lv1']
+    $.each(g_name, function(index, value) {
+      if (value['g_id'] != '0') {
+        options[options.length] = new Option(value['g_name'], value['g_id'])
       }
-    }
+    })
 
-    if (t_id == '0') {
-      t_id = 'Cool'
+    var select = $('#g_type');
+    if (select.prop) {
+      var options = select.prop('options');
+    } else {
+      var options = select.attr('options');
     }
-    for (var i = 0, j = g_type.length; i < j; i++) {
-      if (t_id == g_type[i]['t_id']) {
-        stat_multiplier = g_type[i]['t_stat']
+    $.each(g_type, function(index, value) {
+      options[options.length] = new Option(value['t_id'], value['t_id'])
+    })
+
+    var getStat_f = function() {
+      var g_id = $('#g_name').val(),
+        t_id = $('#g_type').val(),
+        stat_lv1 = '',
+        stat_multiplier = ''
+
+      for (var i = 0, j = g_stat.length; i < j; i++) {
+        if (g_id == g_stat[i]['g_id']) {
+          stat_lv1 = g_stat[i]['lv1']
+        }
       }
+
+      if (t_id == '0') {
+        t_id = 'Cool'
+      }
+      for (var i = 0, j = g_type.length; i < j; i++) {
+        if (t_id == g_type[i]['t_id']) {
+          stat_multiplier = g_type[i]['t_stat']
+        }
+      }
+      var multiplier = stat_multiplier.split(' '),
+        lv1 = stat_lv1.split(' ')
+
+      /*
+        Lv1 * 2.5 = Lv60 (Cool)
+        Lv1 * 3.0 = Max
+        */
+      $('#base_hp').html(lv1[0])
+      $('#base_mp').html(lv1[1])
+      $('#base_atk').html(lv1[2])
+      $('#base_def').html(lv1[3])
+      $('#base_agi').html(lv1[4])
+      $('#base_wis').html(lv1[5])
+
+      $('#type_hp').html(Math.floor(lv1[0] * multiplier[0]))
+      $('#type_mp').html(Math.floor(lv1[1] * multiplier[1]))
+      $('#type_atk').html(Math.floor(lv1[2] * multiplier[2]))
+      $('#type_def').html(Math.floor(lv1[3] * multiplier[3]))
+      $('#type_agi').html(Math.floor(lv1[4] * multiplier[4]))
+      $('#type_wis').html(Math.floor(lv1[5] * multiplier[5]))
+
+      $('#cool_hp').html(Math.floor(lv1[0] * 2.5))
+      $('#cool_mp').html(Math.floor(lv1[1] * 2.5))
+      $('#cool_atk').html(Math.floor(lv1[2] * 2.5))
+      $('#cool_def').html(Math.floor(lv1[3] * 2.5))
+      $('#cool_agi').html(Math.floor(lv1[4] * 2.5))
+      $('#cool_wis').html(Math.floor(lv1[5] * 2.5))
+
+      $('#stat_hp').html(Math.floor(lv1[0] * 2.5 * multiplier[0]))
+      $('#stat_mp').html(Math.floor(lv1[1] * 2.5 * multiplier[1]))
+      $('#stat_atk').html(Math.floor(lv1[2] * 2.5 * multiplier[2]))
+      $('#stat_def').html(Math.floor(lv1[3] * 2.5 * multiplier[3]))
+      $('#stat_agi').html(Math.floor(lv1[4] * 2.5 * multiplier[4]))
+      $('#stat_wis').html(Math.floor(lv1[5] * 2.5 * multiplier[5]))
+
+      $('#max_hp').html(Math.floor(lv1[0] * 3.0 * multiplier[0]))
+      $('#max_mp').html(Math.floor(lv1[1] * 3.0 * multiplier[1]))
+      $('#max_atk').html(Math.floor(lv1[2] * 3.0 * multiplier[2]))
+      $('#max_def').html(Math.floor(lv1[3] * 3.0 * multiplier[3]))
+      $('#max_agi').html(Math.floor(lv1[4] * 3.0 * multiplier[4]))
+      $('#max_wis').html(Math.floor(lv1[5] * 3.0 * multiplier[5]))
     }
-    var multiplier = stat_multiplier.split(' '),
-      lv1 = stat_lv1.split(' ')
 
-    /*
-      Lv1 * 2.5 = Lv60 (Cool)
-      Lv1 * 3.0 = Max
-      */
-    $('#base_hp').html(lv1[0])
-    $('#base_mp').html(lv1[1])
-    $('#base_atk').html(lv1[2])
-    $('#base_def').html(lv1[3])
-    $('#base_agi').html(lv1[4])
-    $('#base_wis').html(lv1[5])
-
-    $('#type_hp').html(Math.floor(lv1[0] * multiplier[0]))
-    $('#type_mp').html(Math.floor(lv1[1] * multiplier[1]))
-    $('#type_atk').html(Math.floor(lv1[2] * multiplier[2]))
-    $('#type_def').html(Math.floor(lv1[3] * multiplier[3]))
-    $('#type_agi').html(Math.floor(lv1[4] * multiplier[4]))
-    $('#type_wis').html(Math.floor(lv1[5] * multiplier[5]))
-
-    $('#cool_hp').html(Math.floor(lv1[0] * 2.5))
-    $('#cool_mp').html(Math.floor(lv1[1] * 2.5))
-    $('#cool_atk').html(Math.floor(lv1[2] * 2.5))
-    $('#cool_def').html(Math.floor(lv1[3] * 2.5))
-    $('#cool_agi').html(Math.floor(lv1[4] * 2.5))
-    $('#cool_wis').html(Math.floor(lv1[5] * 2.5))
-
-    $('#stat_hp').html(Math.floor(lv1[0] * 2.5 * multiplier[0]))
-    $('#stat_mp').html(Math.floor(lv1[1] * 2.5 * multiplier[1]))
-    $('#stat_atk').html(Math.floor(lv1[2] * 2.5 * multiplier[2]))
-    $('#stat_def').html(Math.floor(lv1[3] * 2.5 * multiplier[3]))
-    $('#stat_agi').html(Math.floor(lv1[4] * 2.5 * multiplier[4]))
-    $('#stat_wis').html(Math.floor(lv1[5] * 2.5 * multiplier[5]))
-
-    $('#max_hp').html(Math.floor(lv1[0] * 3.0 * multiplier[0]))
-    $('#max_mp').html(Math.floor(lv1[1] * 3.0 * multiplier[1]))
-    $('#max_atk').html(Math.floor(lv1[2] * 3.0 * multiplier[2]))
-    $('#max_def').html(Math.floor(lv1[3] * 3.0 * multiplier[3]))
-    $('#max_agi').html(Math.floor(lv1[4] * 3.0 * multiplier[4]))
-    $('#max_wis').html(Math.floor(lv1[5] * 3.0 * multiplier[5]))
-  }
-
-  $('#g_name').on('change', getStat_f).chosen()
-  $('#g_type').on('change', getStat_f).chosen()
-})
+    $('#g_name').on('change', getStat_f).chosen()
+    $('#g_type').on('change', getStat_f).chosen()
+  })
 
   // Google Analytics
   var _gaq = _gaq || [];
