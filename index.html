@@ -73,7 +73,7 @@ body {
     <script src="js/chosen.jquery.min.js"></script>
 <script>
   var g_name = [
-        {"g_id":"000001", "g_name":"Bahamut"},
+        {"g_id":"900001", "g_name":"Bahamut"},
         {"g_id":"100011", "g_name":"Almighty Leviathan"},
         {"g_id":"100012", "g_name":"Mighty Leviathan"},
         {"g_id":"100021", "g_name":"Almighty Titan"},
@@ -90,6 +90,7 @@ body {
         {"g_id":"040008", "g_name":"Juggernaut"},
         {"g_id":"040009", "g_name":"Dominion"},
         {"g_id":"040010", "g_name":"Mephistopheles"},
+        {"g_id":"0", "g_name":""},
       ],
       g_type = [
         {"t_id":"Cool", "t_stat":"1 1 1 1 1 1"},
@@ -102,7 +103,7 @@ body {
         {"t_id":"Intelligent", "t_stat":"1 1 0.9 1 1 1.1"}
       ],
       g_stat = [
-        {"g_id":"000001","lv1":"1020 1032 1134 978 1025 1050"},
+        {"g_id":"900001","lv1":"1020 1032 1134 978 1025 1050"},
         {"g_id":"100011","lv1":"1090 1066 1260 1129 981 947"},
         {"g_id":"100012","lv1":"1025 1015 1154 1080 900 920"},
         {"g_id":"100021","lv1":"1400 1025 1070 1060 910 910"},
@@ -130,7 +131,9 @@ $(document).ready(function() {
     var options = select.attr('options');
   }
   $.each(g_name, function(index, value) {
-    options[options.length] = new Option(value['g_name'], value['g_id'])
+    if (value['g_id'] != '0') {
+      options[options.length] = new Option(value['g_name'], value['g_id'])
+    }
   })
 
   var select = $('#g_type');
