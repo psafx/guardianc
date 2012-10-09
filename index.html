@@ -23,14 +23,14 @@ body {
 .select-header {
   float: left;
   font-weight: 700;
-  width: 60px;
+  width: 98px;
   height: 25px;
 }
 .g_stat {
   clear: both;
   list-style: none;
   height: 20px;
-  padding-left: 20px;
+  padding: 0;
   margin: 5px 0;
 }
 .g_stat_label {
@@ -46,11 +46,22 @@ body {
   text-align: right;
 }
 .g_stat_header {
-  padding: 1px 2px 2px 0;
+  background-color: #fff!important;
   font-weight: 700;
+}
+.base {
+  padding: 1px 2px 2px 0;
+  margin-left: 3px;
+  background-color: #eee;
+}
+.type {
+  padding: 1px 2px 2px 0;
+  margin-left: 3px;
+  background-color: #eee;
 }
 .cool {
   padding: 1px 2px 2px 0;
+  margin-left: 3px;
   background-color: #eee;
 }
 .stat {
@@ -90,7 +101,10 @@ body {
         {"g_id":"040008", "g_name":"Juggernaut"},
         {"g_id":"040009", "g_name":"Dominion"},
         {"g_id":"040010", "g_name":"Mephistopheles"},
-        {"g_id":"0", "g_name":""},
+        {"g_id":"040017", "g_name":"Apsara"},
+        {"g_id":"040019", "g_name":"Garguntua"},
+        {"g_id":"040020", "g_name":"Azi Dahaka"},
+        {"g_id":"040025", "g_name":"Frankenstein"},
       ],
       g_type = [
         {"t_id":"Cool", "t_stat":"1 1 1 1 1 1"},
@@ -120,6 +134,10 @@ body {
         {"g_id":"040008","lv1":"850 868 1110 1150 852 880"},
         {"g_id":"040009","lv1":"920 1020 1127 1068 1008 1148"},
         {"g_id":"040010","lv1":"900 1138 940 950 976 1050"},
+        {"g_id":"040017","lv1":""},
+        {"g_id":"040019","lv1":"1210 914 1200 1020 915 940"},
+        {"g_id":"040020","lv1":""},
+        {"g_id":"040025","lv1":""},
         {"g_id":"040000","lv1":""},
       ]
 
@@ -173,6 +191,20 @@ $(document).ready(function() {
       Lv1 * 2.5 = Lv60 (Cool)
       Lv1 * 3.0 = Max
       */
+    $('#base_hp').html(lv1[0])
+    $('#base_mp').html(lv1[1])
+    $('#base_atk').html(lv1[2])
+    $('#base_def').html(lv1[3])
+    $('#base_agi').html(lv1[4])
+    $('#base_wis').html(lv1[5])
+
+    $('#type_hp').html(Math.floor(lv1[0] * multiplier[0]))
+    $('#type_mp').html(Math.floor(lv1[1] * multiplier[1]))
+    $('#type_atk').html(Math.floor(lv1[2] * multiplier[2]))
+    $('#type_def').html(Math.floor(lv1[3] * multiplier[3]))
+    $('#type_agi').html(Math.floor(lv1[4] * multiplier[4]))
+    $('#type_wis').html(Math.floor(lv1[5] * multiplier[5]))
+
     $('#cool_hp').html(Math.floor(lv1[0] * 2.5))
     $('#cool_mp').html(Math.floor(lv1[1] * 2.5))
     $('#cool_atk').html(Math.floor(lv1[2] * 2.5))
@@ -216,42 +248,56 @@ $(document).ready(function() {
     <div class="guardian-wrapper">
       <ul class="g_stat">
         <li class="g_stat_label">&nbsp;</li>
-        <li class="g_stat_value"><span class="g_stat_header">Cool</span></li>
-        <li class="g_stat_value"><span class="g_stat_header">Stat</span></li>
-        <li class="g_stat_value"><span class="g_stat_header">Max</span></li>
+        <li class="g_stat_value g_stat_header base">Base</li>
+        <li class="g_stat_value g_stat_header type">Type</li>
+        <li class="g_stat_value g_stat_header cool">Cool</li>
+        <li class="g_stat_value g_stat_header stat">Stat</li>
+        <li class="g_stat_value g_stat_header max">Max</li>
       </ul>
       <ul class="g_stat">
         <li class="g_stat_label">HP</li>
+        <li id="base_hp" class="g_stat_value base">0</li>
+        <li id="type_hp" class="g_stat_value type">0</li>
         <li id="cool_hp" class="g_stat_value cool">0</li>
         <li id="stat_hp" class="g_stat_value stat">0</li>
         <li id="max_hp" class="g_stat_value max">0</li>
       </ul>
       <ul class="g_stat">
         <li class="g_stat_label">MP</li>
+        <li id="base_mp" class="g_stat_value base">0</li>
+        <li id="type_mp" class="g_stat_value type">0</li>
         <li id="cool_mp" class="g_stat_value cool">0</li>
         <li id="stat_mp" class="g_stat_value stat">0</li>
         <li id="max_mp" class="g_stat_value max">0</li>
       </ul>
       <ul class="g_stat">
         <li class="g_stat_label">ATK</li>
+        <li id="base_atk" class="g_stat_value base">0</li>
+        <li id="type_atk" class="g_stat_value type">0</li>
         <li id="cool_atk" class="g_stat_value cool">0</li>
         <li id="stat_atk" class="g_stat_value stat">0</li>
         <li id="max_atk" class="g_stat_value max">0</li>
       </ul>
       <ul class="g_stat">
         <li class="g_stat_label">DEF</li>
+        <li id="base_def" class="g_stat_value base">0</li>
+        <li id="type_def" class="g_stat_value type">0</li>
         <li id="cool_def" class="g_stat_value cool">0</li>
         <li id="stat_def" class="g_stat_value stat">0</li>
         <li id="max_def" class="g_stat_value max">0</li>
       </ul>
       <ul class="g_stat">
         <li class="g_stat_label">AGI</li>
+        <li id="base_agi" class="g_stat_value base">0</li>
+        <li id="type_agi" class="g_stat_value type">0</li>
         <li id="cool_agi" class="g_stat_value cool">0</li>
         <li id="stat_agi" class="g_stat_value stat">0</li>
         <li id="max_agi" class="g_stat_value max">0</li>
       </ul>
       <ul class="g_stat">
         <li class="g_stat_label">WIS</li>
+        <li id="base_wis" class="g_stat_value base">0</li>
+        <li id="type_wis" class="g_stat_value type">0</li>
         <li id="cool_wis" class="g_stat_value cool">0</li>
         <li id="stat_wis" class="g_stat_value stat">0</li>
         <li id="max_wis" class="g_stat_value max">0</li>
