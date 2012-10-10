@@ -10,21 +10,42 @@
 * {
   font: 13px 'Segoe UI',Tahoma,Verdana,Arial,sans-serif;
 }
-body {
-  margin: 20px 0 0 20px;
+.clearfix:after{
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
 }
-#g_star,
-#g_name,
-#g_type {
+#container {
+  width: auto;
+}
+.guardian-unit {
+  float: left;
+  margin: 20px 0 20px 20px;
+  width: 340px;
+}
+#g_star_1,
+#g_star_2,
+#g_name_1,
+#g_name_2,
+#g_type_1,
+#g_type_2 {
   float: left;
   width: 163px;
 }
 .guardian-wrapper {
-  padding: 5px;
+  clear: both;
+  margin-top: 2px;
+}
+.guardian-data {
+  margin-top: 10px;
 }
 .select-header {
   float: left;
   font-weight: 700;
+  color: #333;
   width: 98px;
   height: 25px;
 }
@@ -39,6 +60,7 @@ body {
   float: left;
   display: inline-block;
   font-weight: 700;
+  color: #333;
   width: 40px;
 }
 .g_stat_value {
@@ -46,10 +68,12 @@ body {
   display: inline-block;
   width: 50px;
   text-align: right;
+  border-radius: 3px 3px 3px 3px;
 }
 .g_stat_header {
   background-color: #fff!important;
   font-weight: 700;
+  color: #333;
 }
 .base {
   padding: 1px 2px 2px 0;
@@ -64,17 +88,48 @@ body {
 .cool {
   padding: 1px 2px 2px 0;
   margin-left: 3px;
-  background-color: #eee;
+  background-color: #f0f3a2;
 }
 .stat {
   padding: 1px 2px 2px 0;
   margin-left: 3px;
-  background-color: #eee;
+  background-color: #f0f3a2;
 }
 .max {
   padding: 1px 2px 2px 0;
   margin-left: 3px;
-  background-color: #eeb588;
+  background-color: #f3d0a2;
+}
+.link-header {
+  font-weight: 700;
+  color: #333;
+}
+.legend,
+.links,
+.programmer {
+  clear: both;
+  margin: 8px 0 0 20px;
+  overflow: hidden;
+}
+.links a,
+.programmer a {
+  text-decoration: none;
+}
+.legend dl {
+  margin: 0 0 0 40px;
+}
+.legend dt {
+  clear: left;
+  float: left;
+  width: 40px;
+}
+.legend dd {
+  float: left;
+  margin: 0;
+}
+.links ul {
+  list-style: none;
+  margin: 0;
 }
 #log {
   clear: both;
@@ -85,7 +140,22 @@ body {
     <script>!window.jQuery && document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
     <script src="js/chosen.jquery.min.js"></script>
 <script>
-  var g_name_5 = [
+  var s_stat = [
+        "base",
+        "type",
+        "cool",
+        "stat",
+        "max"
+      ],
+      s_attr = [
+        "hp",
+        "mp",
+        "atk",
+        "def",
+        "agi",
+        "wis"
+      ],
+      g_name_5 = [
         {"g_id":"900001", "g_name":"Bahamut"},
         {"g_id":"100011", "g_name":"Almighty Leviathan"},
         {"g_id":"100012", "g_name":"Mighty Leviathan"},
@@ -184,153 +254,106 @@ body {
         {"g_id":"030015", "lv1":"869 822 895 902 840 893"},
         {"g_id":"030030", "lv1":"890 784 982 778 932 882"},
         {"g_id":"030031", "lv1":"999 777 957 798 782 807"},
-      ]
+      ],
+      clearStat = function(unit_id, chr) {
+        $.each(s_stat, function(s_index, s_value) {
+          $.each(s_attr, function(a_index, a_value) {
+            $('#' + s_value + '_' + a_value + '_' + unit_id).html(chr)
+          })
+        })
+      },
+      setGuardianName = function(unit_id, star) {
+        var select = $('#g_name_' + unit_id),
+            g_name = g_name_5
+        if (select.prop) {
+          var options = select.prop('options')
+        } else {
+          var options = select.attr('options')
+        }
+        if (star == '4') {
+          g_name = g_name_4
+        }
+        select.find('option').remove()
+        options[options.length] = new Option('Guardian Name', '0')
+        $.each(g_name, function(index, value) {
+          if (value['g_id'] != '0') {
+            options[options.length] = new Option(value['g_name'], value['g_id'])
+          }
+        })
+        select.trigger('liszt:updated')
+      },
+      getStat = function(unit_id) {
+        var g_id = $('#g_name_' + unit_id).val(),
+            t_id = $('#g_type_' + unit_id).val(),
+            stat_lv1 = '',
+            stat_multiplier = ''
+        for (var i = 0, j = g_stat.length; i < j; i++) {
+          if (g_id == g_stat[i]['g_id']) {
+            stat_lv1 = g_stat[i]['lv1']
+          }
+        }
+        if (t_id == '0') {
+          t_id = 'Cool'
+        }
+        for (var i = 0, j = g_type.length; i < j; i++) {
+          if (t_id == g_type[i]['t_id']) {
+            stat_multiplier = g_type[i]['t_stat']
+          }
+        }
+        var multiplier = stat_multiplier.split(' '),
+            lv1 = stat_lv1.split(' ')
+
+        $.each(s_stat, function(s_index, s_value) {
+          switch (s_value) {
+            case 'base':
+              $.each(s_attr, function(a_index, a_value) {
+                $('#' + s_value + '_' + a_value + '_' + unit_id).html(lv1[a_index])
+              })
+              break;
+            case 'type':
+              $.each(s_attr, function(a_index, a_value) {
+                $('#' + s_value + '_' + a_value + '_' + unit_id).html(Math.floor(lv1[a_index] * multiplier[a_index]))
+              })
+              break;
+            case 'cool':
+              $.each(s_attr, function(a_index, a_value) {
+                $('#' + s_value + '_' + a_value + '_' + unit_id).html(Math.floor(lv1[a_index] * 2.5))
+              })
+              break;
+            case 'stat':
+              $.each(s_attr, function(a_index, a_value) {
+                $('#' + s_value + '_' + a_value + '_' + unit_id).html(Math.floor(lv1[a_index] * 2.5 * multiplier[a_index]))
+              })
+              break;
+            case 'max':
+              $.each(s_attr, function(a_index, a_value) {
+                $('#' + s_value + '_' + a_value + '_' + unit_id).html(Math.floor(lv1[a_index] * 3 * multiplier[a_index]))
+              })
+              break;
+          }
+        })
+      },
+      changeStar = function(unit_id, star) {
+        setGuardianName(unit_id, star)
+        clearStat(unit_id, '0')
+      },
+      g_star_change = function(event, data) {
+        changeStar(event.data.unit_id, data.selected)
+      },
+      g_change = function(event) {
+        getStat(event.data.unit_id)
+      }
 
   $(document).ready(function() {
-    var select = $('#g_name')
-    if (select.prop) {
-      var options = select.prop('options')
-    } else {
-      var options = select.attr('options')
-    }
-    $.each(g_name_5, function(index, value) {
-      if (value['g_id'] != '0') {
-        options[options.length] = new Option(value['g_name'], value['g_id'])
-      }
-    })
+    setGuardianName('1', '5')
+    $('#g_name_1').chosen().change({unit_id: '1'}, g_change)
+    $('#g_type_1').chosen({disable_search_threshold: 9}).change({unit_id: '1'}, g_change)
+    $('#g_star_1').chosen({disable_search_threshold: 2}).change({unit_id: '1'}, g_star_change)
 
-    var select = $('#g_type')
-    if (select.prop) {
-      var options = select.prop('options')
-    } else {
-      var options = select.attr('options')
-    }
-    $.each(g_type, function(index, value) {
-      options[options.length] = new Option(value['t_id'], value['t_id'])
-    })
-
-    var getStat_f = function() {
-      var g_id = $('#g_name').val(),
-        t_id = $('#g_type').val(),
-        stat_lv1 = '',
-        stat_multiplier = ''
-
-      for (var i = 0, j = g_stat.length; i < j; i++) {
-        if (g_id == g_stat[i]['g_id']) {
-          stat_lv1 = g_stat[i]['lv1']
-        }
-      }
-
-      if (t_id == '0') {
-        t_id = 'Cool'
-      }
-      for (var i = 0, j = g_type.length; i < j; i++) {
-        if (t_id == g_type[i]['t_id']) {
-          stat_multiplier = g_type[i]['t_stat']
-        }
-      }
-      var multiplier = stat_multiplier.split(' '),
-        lv1 = stat_lv1.split(' ')
-
-      /*
-        Lv1 * 2.5 = Lv60 (Cool)
-        Lv1 * 3.0 = Max
-        */
-      $('#base_hp').html(lv1[0])
-      $('#base_mp').html(lv1[1])
-      $('#base_atk').html(lv1[2])
-      $('#base_def').html(lv1[3])
-      $('#base_agi').html(lv1[4])
-      $('#base_wis').html(lv1[5])
-
-      $('#type_hp').html(Math.floor(lv1[0] * multiplier[0]))
-      $('#type_mp').html(Math.floor(lv1[1] * multiplier[1]))
-      $('#type_atk').html(Math.floor(lv1[2] * multiplier[2]))
-      $('#type_def').html(Math.floor(lv1[3] * multiplier[3]))
-      $('#type_agi').html(Math.floor(lv1[4] * multiplier[4]))
-      $('#type_wis').html(Math.floor(lv1[5] * multiplier[5]))
-
-      $('#cool_hp').html(Math.floor(lv1[0] * 2.5))
-      $('#cool_mp').html(Math.floor(lv1[1] * 2.5))
-      $('#cool_atk').html(Math.floor(lv1[2] * 2.5))
-      $('#cool_def').html(Math.floor(lv1[3] * 2.5))
-      $('#cool_agi').html(Math.floor(lv1[4] * 2.5))
-      $('#cool_wis').html(Math.floor(lv1[5] * 2.5))
-
-      $('#stat_hp').html(Math.floor(lv1[0] * 2.5 * multiplier[0]))
-      $('#stat_mp').html(Math.floor(lv1[1] * 2.5 * multiplier[1]))
-      $('#stat_atk').html(Math.floor(lv1[2] * 2.5 * multiplier[2]))
-      $('#stat_def').html(Math.floor(lv1[3] * 2.5 * multiplier[3]))
-      $('#stat_agi').html(Math.floor(lv1[4] * 2.5 * multiplier[4]))
-      $('#stat_wis').html(Math.floor(lv1[5] * 2.5 * multiplier[5]))
-
-      $('#max_hp').html(Math.floor(lv1[0] * 3.0 * multiplier[0]))
-      $('#max_mp').html(Math.floor(lv1[1] * 3.0 * multiplier[1]))
-      $('#max_atk').html(Math.floor(lv1[2] * 3.0 * multiplier[2]))
-      $('#max_def').html(Math.floor(lv1[3] * 3.0 * multiplier[3]))
-      $('#max_agi').html(Math.floor(lv1[4] * 3.0 * multiplier[4]))
-      $('#max_wis').html(Math.floor(lv1[5] * 3.0 * multiplier[5]))
-    }
-
-    $('#g_name').chosen().change(getStat_f)
-    $('#g_type').chosen().change(getStat_f)
-    $('#g_star').chosen({disable_search_threshold: 5}).change(function() {
-      var r = $('#g_star').val(),
-        select = $('#g_name'),
-        g_name = g_name_5
-
-      if (r == '4') {
-        g_name = g_name_4
-      }
-      select.find('option').remove()
-      if (select.prop) {
-        var options = select.prop('options')
-      } else {
-        var options = select.attr('options')
-      }
-      options[options.length] = new Option('Guardian Name', '0')
-      $.each(g_name, function(index, value) {
-        if (value['g_id'] != '0') {
-          options[options.length] = new Option(value['g_name'], value['g_id'])
-        }
-      })
-      select.trigger("liszt:updated")
-
-      $('#base_hp').html('0')
-      $('#base_mp').html('0')
-      $('#base_atk').html('0')
-      $('#base_def').html('0')
-      $('#base_agi').html('0')
-      $('#base_wis').html('0')
-
-      $('#type_hp').html('0')
-      $('#type_mp').html('0')
-      $('#type_atk').html('0')
-      $('#type_def').html('0')
-      $('#type_agi').html('0')
-      $('#type_wis').html('0')
-
-      $('#cool_hp').html('0')
-      $('#cool_mp').html('0')
-      $('#cool_atk').html('0')
-      $('#cool_def').html('0')
-      $('#cool_agi').html('0')
-      $('#cool_wis').html('0')
-
-      $('#stat_hp').html('0')
-      $('#stat_mp').html('0')
-      $('#stat_atk').html('0')
-      $('#stat_def').html('0')
-      $('#stat_agi').html('0')
-      $('#stat_wis').html('0')
-
-      $('#max_hp').html('0')
-      $('#max_mp').html('0')
-      $('#max_atk').html('0')
-      $('#max_def').html('0')
-      $('#max_agi').html('0')
-      $('#max_wis').html('0')
-    })
+    setGuardianName('2', '5')
+    $('#g_name_2').chosen().change({unit_id: '2'}, g_change)
+    $('#g_type_2').chosen({disable_search_threshold: 9}).change({unit_id: '2'}, g_change)
+    $('#g_star_2').chosen({disable_search_threshold: 2}).change({unit_id: '2'}, g_star_change)
   })
 
   // Google Analytics
@@ -346,83 +369,199 @@ body {
 </script>
   </head>
   <body>
-    <div class="guardian-wrapper">
-      <span class="select-header">Star</span>
-      <select id="g_star">
-        <option value="5" selected="selected">☆☆☆☆☆</option>
-        <option value="4">☆☆☆☆</option>
-      </select>
+    <div class="container">
+      <div class="guardian-unit">
+        <div class="guardian-wrapper clearfix">
+          <span class="select-header">Star</span>
+          <select id="g_star_1">
+            <option value="5" selected="selected">☆☆☆☆☆</option>
+            <option value="4">☆☆☆☆</option>
+          </select>
+        </div>
+        <div class="guardian-wrapper clearfix">
+          <span class="select-header">Guardian</span>
+          <select id="g_name_1">
+          </select>
+        </div>
+        <div class="guardian-wrapper clearfix">
+          <span class="select-header">Type</span>
+          <select id="g_type_1">
+            <option value="0" selected="selected">Guardian Type</option>
+            <option value="Cool">Cool</option>
+            <option value="Ace">Ace</option>
+            <option value="Chaotic">Chaotic</option>
+            <option value="Sexy">Sexy</option>
+            <option value="Powerful">Powerful</option>
+            <option value="Brave">Brave</option>
+            <option value="Fast">Fast</option>
+            <option value="Intelligent">Intelligent</option>
+          </select>
+        </div>
+        <div class="guardian-wrapper clearfix guardian-data">
+          <ul class="g_stat">
+            <li class="g_stat_label">&nbsp;</li>
+            <li class="g_stat_value g_stat_header base">Base</li>
+            <li class="g_stat_value g_stat_header type">Type</li>
+            <li class="g_stat_value g_stat_header cool">Cool</li>
+            <li class="g_stat_value g_stat_header stat">Stat</li>
+            <li class="g_stat_value g_stat_header max">Max</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">HP</li>
+            <li id="base_hp_1" class="g_stat_value base">0</li>
+            <li id="type_hp_1" class="g_stat_value type">0</li>
+            <li id="cool_hp_1" class="g_stat_value cool">0</li>
+            <li id="stat_hp_1" class="g_stat_value stat">0</li>
+            <li id="max_hp_1" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">MP</li>
+            <li id="base_mp_1" class="g_stat_value base">0</li>
+            <li id="type_mp_1" class="g_stat_value type">0</li>
+            <li id="cool_mp_1" class="g_stat_value cool">0</li>
+            <li id="stat_mp_1" class="g_stat_value stat">0</li>
+            <li id="max_mp_1" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">ATK</li>
+            <li id="base_atk_1" class="g_stat_value base">0</li>
+            <li id="type_atk_1" class="g_stat_value type">0</li>
+            <li id="cool_atk_1" class="g_stat_value cool">0</li>
+            <li id="stat_atk_1" class="g_stat_value stat">0</li>
+            <li id="max_atk_1" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">DEF</li>
+            <li id="base_def_1" class="g_stat_value base">0</li>
+            <li id="type_def_1" class="g_stat_value type">0</li>
+            <li id="cool_def_1" class="g_stat_value cool">0</li>
+            <li id="stat_def_1" class="g_stat_value stat">0</li>
+            <li id="max_def_1" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">AGI</li>
+            <li id="base_agi_1" class="g_stat_value base">0</li>
+            <li id="type_agi_1" class="g_stat_value type">0</li>
+            <li id="cool_agi_1" class="g_stat_value cool">0</li>
+            <li id="stat_agi_1" class="g_stat_value stat">0</li>
+            <li id="max_agi_1" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">WIS</li>
+            <li id="base_wis_1" class="g_stat_value base">0</li>
+            <li id="type_wis_1" class="g_stat_value type">0</li>
+            <li id="cool_wis_1" class="g_stat_value cool">0</li>
+            <li id="stat_wis_1" class="g_stat_value stat">0</li>
+            <li id="max_wis_1" class="g_stat_value max">0</li>
+          </ul>
+        </div>
+      </div>
+      <div class="guardian-unit">
+        <div class="guardian-wrapper clearfix">
+          <span class="select-header">Star</span>
+          <select id="g_star_2">
+            <option value="5" selected="selected">☆☆☆☆☆</option>
+            <option value="4">☆☆☆☆</option>
+          </select>
+        </div>
+        <div class="guardian-wrapper clearfix">
+          <span class="select-header">Guardian</span>
+          <select id="g_name_2">
+          </select>
+        </div>
+        <div class="guardian-wrapper clearfix">
+          <span class="select-header">Type</span>
+          <select id="g_type_2">
+            <option value="0" selected="selected">Guardian Type</option>
+            <option value="Cool">Cool</option>
+            <option value="Ace">Ace</option>
+            <option value="Chaotic">Chaotic</option>
+            <option value="Sexy">Sexy</option>
+            <option value="Powerful">Powerful</option>
+            <option value="Brave">Brave</option>
+            <option value="Fast">Fast</option>
+            <option value="Intelligent">Intelligent</option>
+          </select>
+        </div>
+        <div class="guardian-wrapper clearfix guardian-data">
+          <ul class="g_stat">
+            <li class="g_stat_label">&nbsp;</li>
+            <li class="g_stat_value g_stat_header base">Base</li>
+            <li class="g_stat_value g_stat_header type">Type</li>
+            <li class="g_stat_value g_stat_header cool">Cool</li>
+            <li class="g_stat_value g_stat_header stat">Stat</li>
+            <li class="g_stat_value g_stat_header max">Max</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">HP</li>
+            <li id="base_hp_2" class="g_stat_value base">0</li>
+            <li id="type_hp_2" class="g_stat_value type">0</li>
+            <li id="cool_hp_2" class="g_stat_value cool">0</li>
+            <li id="stat_hp_2" class="g_stat_value stat">0</li>
+            <li id="max_hp_2" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">MP</li>
+            <li id="base_mp_2" class="g_stat_value base">0</li>
+            <li id="type_mp_2" class="g_stat_value type">0</li>
+            <li id="cool_mp_2" class="g_stat_value cool">0</li>
+            <li id="stat_mp_2" class="g_stat_value stat">0</li>
+            <li id="max_mp_2" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">ATK</li>
+            <li id="base_atk_2" class="g_stat_value base">0</li>
+            <li id="type_atk_2" class="g_stat_value type">0</li>
+            <li id="cool_atk_2" class="g_stat_value cool">0</li>
+            <li id="stat_atk_2" class="g_stat_value stat">0</li>
+            <li id="max_atk_2" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">DEF</li>
+            <li id="base_def_2" class="g_stat_value base">0</li>
+            <li id="type_def_2" class="g_stat_value type">0</li>
+            <li id="cool_def_2" class="g_stat_value cool">0</li>
+            <li id="stat_def_2" class="g_stat_value stat">0</li>
+            <li id="max_def_2" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">AGI</li>
+            <li id="base_agi_2" class="g_stat_value base">0</li>
+            <li id="type_agi_2" class="g_stat_value type">0</li>
+            <li id="cool_agi_2" class="g_stat_value cool">0</li>
+            <li id="stat_agi_2" class="g_stat_value stat">0</li>
+            <li id="max_agi_2" class="g_stat_value max">0</li>
+          </ul>
+          <ul class="g_stat">
+            <li class="g_stat_label">WIS</li>
+            <li id="base_wis_2" class="g_stat_value base">0</li>
+            <li id="type_wis_2" class="g_stat_value type">0</li>
+            <li id="cool_wis_2" class="g_stat_value cool">0</li>
+            <li id="stat_wis_2" class="g_stat_value stat">0</li>
+            <li id="max_wis_2" class="g_stat_value max">0</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="guardian-wrapper">
-      <span class="select-header">Guardian</span>
-      <select id="g_name">
-        <option value="0" selected="selected">Guardian Name</option>
-      </select>
+    <div class="legend">
+      <div class="link-header">Legend</div>
+      <dl>
+        <dt>Base</dt><dd>: Lv1 Guardian Stat</dd>
+        <dt>Type</dt><dd>: Lv1 Guardian Stat by type</dd>
+        <dt>Cool</dt><dd>: Lv60 Cool type Guardian</dd>
+        <dt>Stat</dt><dd>: Lv60 Guardian Stat by type</dd>
+        <dt>Max</dt><dd>: Maximum Stat by type</dd>
+      </dl>
     </div>
-    <div class="guardian-wrapper">
-      <span class="select-header">Type</span>
-      <select id="g_type">
-        <option value="0" selected="selected">Guardian Type</option>
-      </select>
-    </div>
-    <div class="guardian-wrapper">
-      <ul class="g_stat">
-        <li class="g_stat_label">&nbsp;</li>
-        <li class="g_stat_value g_stat_header base">Base</li>
-        <li class="g_stat_value g_stat_header type">Type</li>
-        <li class="g_stat_value g_stat_header cool">Cool</li>
-        <li class="g_stat_value g_stat_header stat">Stat</li>
-        <li class="g_stat_value g_stat_header max">Max</li>
-      </ul>
-      <ul class="g_stat">
-        <li class="g_stat_label">HP</li>
-        <li id="base_hp" class="g_stat_value base">0</li>
-        <li id="type_hp" class="g_stat_value type">0</li>
-        <li id="cool_hp" class="g_stat_value cool">0</li>
-        <li id="stat_hp" class="g_stat_value stat">0</li>
-        <li id="max_hp" class="g_stat_value max">0</li>
-      </ul>
-      <ul class="g_stat">
-        <li class="g_stat_label">MP</li>
-        <li id="base_mp" class="g_stat_value base">0</li>
-        <li id="type_mp" class="g_stat_value type">0</li>
-        <li id="cool_mp" class="g_stat_value cool">0</li>
-        <li id="stat_mp" class="g_stat_value stat">0</li>
-        <li id="max_mp" class="g_stat_value max">0</li>
-      </ul>
-      <ul class="g_stat">
-        <li class="g_stat_label">ATK</li>
-        <li id="base_atk" class="g_stat_value base">0</li>
-        <li id="type_atk" class="g_stat_value type">0</li>
-        <li id="cool_atk" class="g_stat_value cool">0</li>
-        <li id="stat_atk" class="g_stat_value stat">0</li>
-        <li id="max_atk" class="g_stat_value max">0</li>
-      </ul>
-      <ul class="g_stat">
-        <li class="g_stat_label">DEF</li>
-        <li id="base_def" class="g_stat_value base">0</li>
-        <li id="type_def" class="g_stat_value type">0</li>
-        <li id="cool_def" class="g_stat_value cool">0</li>
-        <li id="stat_def" class="g_stat_value stat">0</li>
-        <li id="max_def" class="g_stat_value max">0</li>
-      </ul>
-      <ul class="g_stat">
-        <li class="g_stat_label">AGI</li>
-        <li id="base_agi" class="g_stat_value base">0</li>
-        <li id="type_agi" class="g_stat_value type">0</li>
-        <li id="cool_agi" class="g_stat_value cool">0</li>
-        <li id="stat_agi" class="g_stat_value stat">0</li>
-        <li id="max_agi" class="g_stat_value max">0</li>
-      </ul>
-      <ul class="g_stat">
-        <li class="g_stat_label">WIS</li>
-        <li id="base_wis" class="g_stat_value base">0</li>
-        <li id="type_wis" class="g_stat_value type">0</li>
-        <li id="cool_wis" class="g_stat_value cool">0</li>
-        <li id="stat_wis" class="g_stat_value stat">0</li>
-        <li id="max_wis" class="g_stat_value max">0</li>
+    <div class="links">
+      <div class="link-header">External Links</div>
+      <ul>
+        <li><a href="http://w.livedoor.jp/guardianc">Guardian Cross - Japanese Wiki</a></li>
+        <li><a href="http://guardiancrossguide.blogspot.com">Guardian Cross Guide</a></li>
       </ul>
     </div>
-    <div id="log"></div>
+    <div class="programmer">
+      Writen by <a href="http://facebook.com/psafx">Prasong Aroonruviwat</a>
+    </div>
   </body>
 </html>
