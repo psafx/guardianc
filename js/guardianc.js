@@ -116,12 +116,12 @@ var s_stat = [
     clearStat = function(unit_id, chr) {
       $.each(s_stat, function(s_index, s_value) {
         $.each(s_attr, function(a_index, a_value) {
-          $('#' + s_value + '_' + a_value + '_' + unit_id).html(chr)
+          $('#' + s_value + '-' + a_value + '-' + unit_id).html(chr)
         })
       })
     },
     setGuardianName = function(unit_id, star) {
-      var select = $('#g_name_' + unit_id),
+      var select = $('#g-name-' + unit_id),
           g_name = g_name_5
       if (select.prop) {
         var options = select.prop('options')
@@ -141,8 +141,8 @@ var s_stat = [
       select.trigger('liszt:updated')
     },
     getStat = function(unit_id) {
-      var g_id = $('#g_name_' + unit_id).val(),
-          t_id = $('#g_type_' + unit_id).val(),
+      var g_id = $('#g-name-' + unit_id).val(),
+          t_id = $('#g-type-' + unit_id).val(),
           stat_lv1 = '',
           stat_multiplier = ''
       for (var i = 0, j = g_stat.length; i < j; i++) {
@@ -165,27 +165,27 @@ var s_stat = [
         switch (s_value) {
           case 'base':
             $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '_' + a_value + '_' + unit_id).html(lv1[a_index])
+              $('#' + s_value + '-' + a_value + '-' + unit_id).html(lv1[a_index])
             })
             break;
           case 'type':
             $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '_' + a_value + '_' + unit_id).html(Math.floor(lv1[a_index] * multiplier[a_index]))
+              $('#' + s_value + '-' + a_value + '-' + unit_id).html(Math.floor(lv1[a_index] * multiplier[a_index]))
             })
             break;
           case 'cool':
             $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '_' + a_value + '_' + unit_id).html(Math.floor(lv1[a_index] * 2.5))
+              $('#' + s_value + '-' + a_value + '-' + unit_id).html(Math.floor(lv1[a_index] * 2.5))
             })
             break;
           case 'stat':
             $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '_' + a_value + '_' + unit_id).html(Math.floor(lv1[a_index] * 2.5 * multiplier[a_index]))
+              $('#' + s_value + '-' + a_value + '-' + unit_id).html(Math.floor(lv1[a_index] * 2.5 * multiplier[a_index]))
             })
             break;
           case 'max':
             $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '_' + a_value + '_' + unit_id).html(Math.floor(lv1[a_index] * 3 * multiplier[a_index]))
+              $('#' + s_value + '-' + a_value + '-' + unit_id).html(Math.floor(lv1[a_index] * 3 * multiplier[a_index]))
             })
             break;
         }

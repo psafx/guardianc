@@ -15,7 +15,7 @@ body {
   visibility: hidden;
 }
 
-#container {
+.container {
   width: auto;
 }
 
@@ -25,12 +25,7 @@ body {
   margin: 20px 0 20px 20px;
 }
 
-#g_star_1,
-#g_star_2,
-#g_name_1,
-#g_name_2,
-#g_type_1,
-#g_type_2 {
+.g-select {
   float: left;
   width: 163px;
 }
@@ -52,7 +47,7 @@ body {
   color: #333;
 }
 
-.g_stat {
+.g-stat {
   height: 20px;
   padding: 0;
   margin: 5px 0;
@@ -60,7 +55,7 @@ body {
   list-style: none;
 }
 
-.g_stat_label {
+.g-stat-label {
   display: inline-block;
   float: left;
   width: 40px;
@@ -68,7 +63,7 @@ body {
   color: #333;
 }
 
-.g_stat_value {
+.g-stat-value {
   display: inline-block;
   float: left;
   width: 40px;
@@ -78,7 +73,7 @@ body {
           border-radius: 3px;
 }
 
-.g_stat_header {
+.g-stat-header {
   font-weight: 700;
   color: #333;
   background-color: #fff!important;
