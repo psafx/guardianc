@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Verdana, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  color: #111;
+}
+
+.clearfix:after {
+  display: block;
+  height: 0;
+  clear: both;
+  font-size: 0;
+  content: ".";
+  visibility: hidden;
+}
+
+#container {
+  width: auto;
+}
+
+.guardian-unit {
+  float: left;
+  width: 300px;
+  margin: 20px 0 20px 20px;
+}
+
+#g_star_1,
+#g_star_2,
+#g_name_1,
+#g_name_2,
+#g_type_1,
+#g_type_2 {
+  float: left;
+  width: 163px;
+}
+
+.guardian-wrapper {
+  margin-top: 2px;
+  clear: both;
+}
+
+.guardian-data {
+  margin-top: 10px;
+}
+
+.select-header {
+  float: left;
+  width: 79px;
+  height: 25px;
+  font-weight: 700;
+  color: #333;
+}
+
+.g_stat {
+  height: 20px;
+  padding: 0;
+  margin: 5px 0;
+  clear: both;
+  list-style: none;
+}
+
+.g_stat_label {
+  display: inline-block;
+  float: left;
+  width: 40px;
+  font-weight: 700;
+  color: #333;
+}
+
+.g_stat_value {
+  display: inline-block;
+  float: left;
+  width: 40px;
+  text-align: right;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+.g_stat_header {
+  font-weight: 700;
+  color: #333;
+  background-color: #fff!important;
+}
+
+.base {
+  padding: 1px 4px 2px 0;
+  margin-left: 3px;
+  background-color: #eee;
+}
+
+.type {
+  padding: 1px 4px 2px 0;
+  margin-left: 3px;
+  background-color: #eee;
+}
+
+.cool {
+  padding: 1px 4px 2px 0;
+  margin-left: 3px;
+  background-color: #f0f3a2;
+}
+
+.stat {
+  padding: 1px 4px 2px 0;
+  margin-left: 3px;
+  background-color: #f0f3a2;
+}
+
+.max {
+  padding: 1px 4px 2px 0;
+  margin-left: 3px;
+  background-color: #f3d0a2;
+}
+
+.link-header {
+  font-weight: 700;
+  color: #333;
+}
+
+.legend,
+.links,
+.programmer {
+  margin: 8px 0 0 20px;
+  overflow: hidden;
+  clear: both;
+}
+
+.links a,
+.programmer a {
+  text-decoration: none;
+}
+
+.legend dl {
+  margin: 0 0 0 40px;
+}
+
+.legend dt {
+  float: left;
+  width: 40px;
+  clear: left;
+}
+
+.legend dd {
+  float: left;
+  margin: 0;
+}
+
+.links ul {
+  margin: 0;
+  list-style: none;
+}

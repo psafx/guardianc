@@ -44,7 +44,9 @@
   white-space: nowrap;
   position: relative;
   height: 23px;
+  /* psa
   line-height: 24px;
+  */
   padding: 0 0 0 8px;
   color: #444444;
   text-decoration: none;
