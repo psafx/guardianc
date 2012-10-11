@@ -109,6 +109,19 @@ body {
   background-color: #f3d0a2;
 }
 
+.best-1 {
+  font-weight: 700;
+  color: #2bad4a!important;
+}
+
+.best-2 {
+  color: #2bad4a!important;
+}
+
+.worst-1 {
+  color: #d8503e!important;
+}
+
 .link-header {
   font-weight: 700;
   color: #333;

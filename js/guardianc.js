@@ -144,52 +144,67 @@ var s_stat = [
       var g_id = $('#g-name-' + unit_id).val(),
           t_id = $('#g-type-' + unit_id).val(),
           stat_lv1 = '',
-          stat_multiplier = ''
+          stat_multiplier = '',
+          setStatColor = function(data) {
+            $.each(data, function(index, value) {
+              if (index == 0) {
+                $(value[0]).addClass('best-1')
+              }
+              if (index == 1) {
+                $(value[0]).addClass('best-2')
+              }
+              if (index == 5) {
+                $(value[0]).addClass('worst-1')
+              }
+            })
+          },
+          calculateStat = function() {
+          }
+
       for (var i = 0, j = g_stat.length; i < j; i++) {
         if (g_id == g_stat[i]['g_id']) {
           stat_lv1 = g_stat[i]['lv1']
         }
       }
-      if (t_id == '0') {
-        t_id = 'Cool'
-      }
-      for (var i = 0, j = g_type.length; i < j; i++) {
-        if (t_id == g_type[i]['t_id']) {
-          stat_multiplier = g_type[i]['t_stat']
+      if (stat_lv1 != '') {
+        if (t_id == '0') {
+          t_id = 'Cool'
         }
-      }
-      var multiplier = stat_multiplier.split(' '),
-          lv1 = stat_lv1.split(' ')
-
-      $.each(s_stat, function(s_index, s_value) {
-        switch (s_value) {
-          case 'base':
-            $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '-' + a_value + '-' + unit_id).html(lv1[a_index])
-            })
-            break;
-          case 'type':
-            $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '-' + a_value + '-' + unit_id).html(Math.floor(lv1[a_index] * multiplier[a_index]))
-            })
-            break;
-          case 'cool':
-            $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '-' + a_value + '-' + unit_id).html(Math.floor(lv1[a_index] * 2.5))
-            })
-            break;
-          case 'stat':
-            $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '-' + a_value + '-' + unit_id).html(Math.floor(lv1[a_index] * 2.5 * multiplier[a_index]))
-            })
-            break;
-          case 'max':
-            $.each(s_attr, function(a_index, a_value) {
-              $('#' + s_value + '-' + a_value + '-' + unit_id).html(Math.floor(lv1[a_index] * 3 * multiplier[a_index]))
-            })
-            break;
+        for (var i = 0, j = g_type.length; i < j; i++) {
+          if (t_id == g_type[i]['t_id']) {
+            stat_multiplier = g_type[i]['t_stat']
+          }
         }
-      })
+        var multiplier = stat_multiplier.split(' '),
+            lv1 = stat_lv1.split(' ')
+        $.each(s_stat, function(s_index, s_value) {
+          var temp = []
+          $.each(s_attr, function(a_index, a_value) {
+            var e_id = '#' + s_value + '-' + a_value + '-' + unit_id,
+                e_value = lv1[a_index]
+            switch (s_value) {
+              case 'base':
+                break;
+              case 'type':
+                e_value *= multiplier[a_index]
+                break;
+              case 'cool':
+                e_value *= 2.5
+                break;
+              case 'stat':
+                e_value *= multiplier[a_index] * 2.5
+                break;
+              case 'max':
+                e_value *= multiplier[a_index] * 3
+                break;
+            }
+            temp.push([e_id, e_value])
+            $(e_id).html(e_value)
+          })
+          temp.sort(function(a, b) {return b[1] - a[1]})
+          setStatColor(temp)
+        })
+      }
     },
     changeStar = function(unit_id, star) {
       setGuardianName(unit_id, star)
