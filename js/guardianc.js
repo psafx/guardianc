@@ -199,7 +199,7 @@ var s_stat = [
                 break;
             }
             temp.push([e_id, e_value])
-            $(e_id).html(e_value)
+            $(e_id).html(Math.floor(e_value))
           })
           temp.sort(function(a, b) {return b[1] - a[1]})
           setStatColor(temp)
