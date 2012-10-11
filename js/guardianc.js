@@ -13,6 +13,10 @@ var s_stat = [
       "agi",
       "wis"
     ],
+    g_name_p = [
+      {"g_id":"800001", "g_name":"Load of the Inferno"},
+      {"g_id":"800002", "g_name":"Cerberus"},
+    ],
     g_name_5 = [
       {"g_id":"900001", "g_name":"Bahamut"},
       {"g_id":"100011", "g_name":"Almighty Leviathan"},
@@ -71,6 +75,8 @@ var s_stat = [
     ],
     g_stat = [
       {"g_id":"900001", "lv1":"1020 1032 1134 978 1025 1050"},
+      {"g_id":"800001", "lv1":"1030 1005 1069 1051 957 946"},
+      {"g_id":"800002", "lv1":"856 808 877 857 851 846"},
       {"g_id":"100011", "lv1":"1090 1066 1260 1129 981 947"},
       {"g_id":"100012", "lv1":"1025 1015 1154 1080 900 920"},
       {"g_id":"100021", "lv1":"1400 1025 1070 1060 910 910"},
@@ -120,6 +126,23 @@ var s_stat = [
         })
       })
     },
+    setGuardianType = function(unit_id, type) {
+      var select = $('#g-type-' + unit_id)
+      if (select.prop) {
+        var options = select.prop('options')
+      } else {
+        var options = select.attr('options')
+      }
+      select.find('option').remove()
+      if (type == 'P') {
+        options[options.length] = new Option('Cool', 'Cool')
+      } else {
+        $.each(g_type, function(index, value) {
+          options[options.length] = new Option(value['t_id'], value['t_id'])
+        })
+      }
+      select.trigger('liszt:updated')
+    },
     setGuardianName = function(unit_id, star) {
       var select = $('#g-name-' + unit_id),
           g_name = g_name_5
@@ -130,6 +153,12 @@ var s_stat = [
       }
       if (star == '4') {
         g_name = g_name_4
+      }
+      if (star == 'P') {
+        g_name = g_name_p
+        setGuardianType(unit_id, 'P')
+      } else {
+        setGuardianType(unit_id)
       }
       select.find('option').remove()
       options[options.length] = new Option('Guardian Name', '0')
@@ -166,9 +195,6 @@ var s_stat = [
         }
       }
       if (stat_lv1 != '') {
-        if (t_id == '0') {
-          t_id = 'Cool'
-        }
         for (var i = 0, j = g_type.length; i < j; i++) {
           if (t_id == g_type[i]['t_id']) {
             stat_multiplier = g_type[i]['t_stat']
