@@ -159,3 +159,7 @@ body {
   margin: 0;
   list-style: none;
 }
+
+.version-info {
+  font-size: 12px;
+}
