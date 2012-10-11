@@ -74,9 +74,13 @@ body {
 }
 
 .g-stat-header {
+  font-size: 12px;
   font-weight: 700;
   color: #333;
   background-color: #fff!important;
+  text-align: center;
+  width: 47px;
+  line-height: 14px;
 }
 
 .base {
@@ -146,13 +150,15 @@ body {
 
 .legend dt {
   float: left;
-  width: 40px;
+  width: 70px;
   clear: left;
+  font-size: 12px;
 }
 
 .legend dd {
   float: left;
   margin: 0;
+  font-size: 12px;
 }
 
 .links ul {
