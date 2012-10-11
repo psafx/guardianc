@@ -116,7 +116,7 @@ var s_stat = [
     clearStat = function(unit_id, chr) {
       $.each(s_stat, function(s_index, s_value) {
         $.each(s_attr, function(a_index, a_value) {
-          $('#' + s_value + '-' + a_value + '-' + unit_id).html(chr)
+          $('#' + s_value + '-' + a_value + '-' + unit_id).html(chr).removeClass('best-1').removeClass('best-2').removeClass('worst-1')
         })
       })
     },
@@ -157,10 +157,9 @@ var s_stat = [
                 $(value[0]).addClass('worst-1')
               }
             })
-          },
-          calculateStat = function() {
           }
 
+      clearStat(unit_id, '0')
       for (var i = 0, j = g_stat.length; i < j; i++) {
         if (g_id == g_stat[i]['g_id']) {
           stat_lv1 = g_stat[i]['lv1']
