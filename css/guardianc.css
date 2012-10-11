@@ -191,13 +191,12 @@ body {
   .link-header {
     width: 310px;
   }
-  .legend dl {
+  .legend dl,
+  .version-info {
+    margin-left: 20px;
     margin-left: 20px;
   }
   .links ul {
     padding-left: 20px;
-  }
-  .version-info {
-    margin-left: 20px;
   }
 }
