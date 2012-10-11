@@ -68,7 +68,7 @@ body {
 .g-stat-value {
   display: inline-block;
   float: left;
-  width: 40px;
+  width: 38px;
   text-align: right;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
@@ -90,30 +90,35 @@ body {
   padding: 1px 4px 2px 0;
   margin-left: 3px;
   background-color: #eee;
+  border: solid 1px #fff;
 }
 
 .type {
   padding: 1px 4px 2px 0;
   margin-left: 3px;
   background-color: #eee;
+  border: solid 1px #ddd;
 }
 
 .cool {
   padding: 1px 4px 2px 0;
   margin-left: 3px;
   background-color: #f0f3a2;
+  border: solid 1px #fff;
 }
 
 .stat {
   padding: 1px 4px 2px 0;
   margin-left: 3px;
   background-color: #f0f3a2;
+  border: solid 1px #d0d392;
 }
 
 .max {
   padding: 1px 4px 2px 0;
   margin-left: 3px;
   background-color: #f3d0a2;
+  border: solid 1px #d3b092;
 }
 
 .best-1 {
