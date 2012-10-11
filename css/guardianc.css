@@ -20,7 +20,7 @@ body {
 }
 
 .header {
-  margin: 8px 0 0 20px;
+  margin: 8px 0 0 15px;
 }
 
 .guardian-unit {
@@ -132,7 +132,7 @@ body {
 }
 
 .link-header {
-  width: 910px;
+  width: 920px;
   padding-left: 5px;
   font-weight: 700;
   line-height: 22px;
@@ -143,7 +143,7 @@ body {
 .legend,
 .links,
 .programmer {
-  margin: 8px 0 0 20px;
+  margin: 8px 0 0 15px;
   overflow: hidden;
   clear: both;
 }
@@ -189,14 +189,13 @@ body {
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   .link-header {
-    width: 310px;
+    width: 285px;
   }
   .legend dl,
   .version-info {
-    margin-left: 20px;
-    margin-left: 20px;
+    margin-left: 5px;
   }
   .links ul {
-    padding-left: 20px;
+    padding-left: 5px;
   }
 }
