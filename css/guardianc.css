@@ -197,4 +197,7 @@ body {
   .links ul {
     padding-left: 20px;
   }
+  .version-info {
+    margin-left: 20px;
+  }
 }
