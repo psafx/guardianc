@@ -22,7 +22,7 @@ body {
 .guardian-unit {
   float: left;
   width: 300px;
-  margin: 20px 0 20px 20px;
+  margin: 20px 0 10px 20px;
 }
 
 .g-select {
@@ -74,13 +74,14 @@ body {
 }
 
 .g-stat-header {
+  width: 47px;
+  height: 30px;
   font-size: 12px;
   font-weight: 700;
-  color: #333;
-  background-color: #fff!important;
-  text-align: center;
-  width: 47px;
   line-height: 14px;
+  color: #333;
+  text-align: center;
+  background-color: #fff!important;
 }
 
 .base {
@@ -127,8 +128,12 @@ body {
 }
 
 .link-header {
+  width: 910px;
+  padding-left: 5px;
   font-weight: 700;
+  line-height: 22px;
   color: #333;
+  background-color: #dbeaf9;
 }
 
 .legend,
@@ -168,4 +173,16 @@ body {
 
 .version-info {
   font-size: 12px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .link-header {
+    width: 310px;
+  }
+  .legend dl {
+    margin-left: 20px;
+  }
+  .links ul {
+    padding-left: 20px;
+  }
 }
