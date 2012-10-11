@@ -19,10 +19,14 @@ body {
   width: auto;
 }
 
+.header {
+  margin: 8px 0 0 20px;
+}
+
 .guardian-unit {
   float: left;
   width: 300px;
-  margin: 20px 0 10px 20px;
+  margin: 5px 0 5px 20px;
 }
 
 .g-select {
@@ -149,6 +153,10 @@ body {
   text-decoration: none;
 }
 
+.programmer {
+  margin-bottom: 10px;
+}
+
 .legend dl {
   margin: 0 0 0 40px;
 }
@@ -172,6 +180,7 @@ body {
 }
 
 .version-info {
+  margin-left: 40px;
   font-size: 12px;
 }
 
