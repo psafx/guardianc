@@ -16,22 +16,15 @@ body {
 }
 
 .container {
-  width: auto;
-}
-
-.header {
-  margin: 8px 0 0 15px;
+  margin: 0 auto;
+  width: 861px;
 }
 
 .guardian-unit {
   float: left;
-  width: 300px;
-  margin: 5px 0 5px 20px;
-}
-
-.g-select {
-  float: left;
-  width: 163px;
+  width: 280px;
+  margin: 5px 0 5px 5px;
+  border: solid 1px #fff;
 }
 
 .guardian-wrapper {
@@ -43,12 +36,17 @@ body {
   margin-top: 10px;
 }
 
-.select-header {
+.g-select-header {
   float: left;
-  width: 79px;
+  width: 90px;
   height: 25px;
   font-weight: 700;
   color: #333;
+}
+
+.g-select {
+  float: left;
+  width: 185px;
 }
 
 .g-stat {
@@ -132,7 +130,6 @@ body {
 }
 
 .link-header {
-  width: 920px;
   padding-left: 5px;
   font-weight: 700;
   line-height: 22px;
@@ -140,10 +137,11 @@ body {
   background-color: #d8dfea;
 }
 
+.header,
 .legend,
 .links,
 .programmer {
-  margin: 8px 0 0 15px;
+  margin-top: 8px;
   overflow: hidden;
   clear: both;
 }
@@ -187,9 +185,9 @@ body {
   font-size: 12px;
 }
 
-@media screen and (max-width: 640px) {
-  .link-header {
-    width: 285px;
+@media screen and (max-width: 600px) {
+  .container {
+    width: 288px;
   }
   .legend dl,
   .version-info {
@@ -199,8 +197,9 @@ body {
     padding-left: 5px;
   }
 }
-@media screen and (min-width: 641px) and (max-width: 980px) {
-  .link-header {
-    width: 605px;
+
+@media screen and (min-width: 601px) and (max-width: 880px) {
+  .container {
+    width: 574px;
   }
 }
