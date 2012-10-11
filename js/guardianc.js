@@ -194,7 +194,8 @@ var s_stat = [
                 e_value *= multiplier[a_index] * 2.5
                 break;
               case 'max':
-                e_value *= multiplier[a_index] * 3
+                e_value *= multiplier[a_index] * 2.5
+                e_value += (lv1[a_index] / 2)
                 break;
             }
             temp.push([e_id, e_value])
