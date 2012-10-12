@@ -180,7 +180,7 @@
                 }
             }
             //removing left margin on last element
-            _html.li.chrome.style.margin = "0 0 10px";
+            _html.li.opera.style.margin = "0 0 10px";
         })();
     };
 
