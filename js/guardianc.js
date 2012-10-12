@@ -163,9 +163,7 @@ var s_stat = [
       select.find('option').remove()
       options[options.length] = new Option('Guardian Name', '0')
       $.each(g_name, function(index, value) {
-        if (value['g_id'] != '0') {
-          options[options.length] = new Option(value['g_name'], value['g_id'])
-        }
+        options[options.length] = new Option(value['g_name'], value['g_id'])
       })
       select.trigger('liszt:updated')
     },
