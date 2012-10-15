@@ -14,11 +14,11 @@ var s_stat = [
       "wis"
     ],
     g_name_p = [
+      {"g_id":"900001", "g_name":"Bahamut"},
       {"g_id":"800001", "g_name":"Load of the Inferno"},
       {"g_id":"800002", "g_name":"Cerberus"},
     ],
-    g_name_5 = [
-      {"g_id":"900001", "g_name":"Bahamut"},
+    g_name_c = [
       {"g_id":"100011", "g_name":"Almighty Leviathan"},
       {"g_id":"100012", "g_name":"Mighty Leviathan"},
       {"g_id":"100021", "g_name":"Almighty Titan"},
@@ -27,6 +27,8 @@ var s_stat = [
       {"g_id":"100032", "g_name":"Mighty Ifrit"},
       {"g_id":"100041", "g_name":"Almighty Valkyrie"},
       {"g_id":"100042", "g_name":"Mighty Valkyrie"},
+    ],
+    g_name_5 = [
       {"g_id":"040012", "g_name":"Leviathan"},
       {"g_id":"040003", "g_name":"Titan"},
       {"g_id":"040007", "g_name":"Vampire Matron"},
@@ -155,14 +157,18 @@ var s_stat = [
       } else {
         var options = select.attr('options')
       }
-      if (star == '4') {
-        g_name = g_name_4
-      }
-      if (star == 'P') {
-        g_name = g_name_p
-        setGuardianType(unit_id, 'P')
-      } else {
-        setGuardianType(unit_id)
+      switch (star) {
+        case '4':
+          g_name = g_name_4
+          break;
+        case 'C':
+          g_name = g_name_c
+          setGuardianType(unit_id, 'C')
+          break;
+        case 'P':
+          g_name = g_name_p
+          setGuardianType(unit_id, 'P')
+          break;
       }
       select.find('option').remove()
       options[options.length] = new Option('Guardian Name', '0')
