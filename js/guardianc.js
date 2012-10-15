@@ -14,7 +14,6 @@ var s_stat = [
       "wis"
     ],
     g_name_p = [
-      {"g_id":"900001", "g_name":"Bahamut"},
       {"g_id":"800001", "g_name":"Load of the Inferno"},
       {"g_id":"800002", "g_name":"Cerberus"},
     ],
@@ -29,6 +28,7 @@ var s_stat = [
       {"g_id":"100042", "g_name":"Mighty Valkyrie"},
     ],
     g_name_5 = [
+      {"g_id":"900001", "g_name":"Bahamut"},
       {"g_id":"040012", "g_name":"Leviathan"},
       {"g_id":"040003", "g_name":"Titan"},
       {"g_id":"040007", "g_name":"Vampire Matron"},
