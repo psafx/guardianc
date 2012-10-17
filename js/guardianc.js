@@ -26,6 +26,9 @@ var s_stat = [
       {"g_id":"100032", "g_name":"Mighty Ifrit"},
       {"g_id":"100041", "g_name":"Almighty Valkyrie"},
       {"g_id":"100042", "g_name":"Mighty Valkyrie"},
+      {"g_id":"100051", "g_name":"Almighty Pumpkin Chunkin' Titan"},
+      {"g_id":"100052", "g_name":"Mighty Pumpkin Chunkin' Titan"},
+      {"g_id":"100053", "g_name":"Great Pumpkin Chunkin' Titan"},
     ],
     g_name_5 = [
       {"g_id":"900001", "g_name":"Bahamut"},
@@ -68,8 +71,8 @@ var s_stat = [
       {"g_id":"030031", "g_name":"Revenant"},
     ],
     g_type = [
-      {"t_id":"Cool", "t_stat":"1 1 1 1 1 1"},
       {"t_id":"Ace", "t_stat":"1.1 1.1 1.1 1.1 1.1 1.1"},
+      {"t_id":"Cool", "t_stat":"1 1 1 1 1 1"},
       {"t_id":"Chaotic", "t_stat":"1.1 1 1 1 1 0.9"},
       {"t_id":"Sexy", "t_stat":"0.9 1.1 1 1 1 1"},
       {"t_id":"Powerful", "t_stat":"1 1 1.1 1 0.9 1"},
@@ -89,6 +92,9 @@ var s_stat = [
       {"g_id":"100032", "lv1":"1010 1005 1080 1050 920 920"},
       {"g_id":"100041", "lv1":"957 1114 1029 1024 1090 1130"},
       {"g_id":"100042", "lv1":"930 1082 999 995 1059 1098"},
+      {"g_id":"100051", "lv1":"1800 1025 1070 1060 910 910"},
+      {"g_id":"100052", "lv1":"1400 1025 1070 1060 910 910"},
+      {"g_id":"100053", "lv1":"1120 1025 1070 1060 910 910"},
       {"g_id":"040012", "lv1":"1025 1015 1050 1080 900 920"},
       {"g_id":"040003", "lv1":"1050 1025 1070 1060 910 910"},
       {"g_id":"040007", "lv1":"1008 1007 980 960 1008 1002"},
@@ -158,8 +164,12 @@ var s_stat = [
         var options = select.attr('options')
       }
       switch (star) {
+        case '5':
+          setGuardianType(unit_id, '5')
+          break;
         case '4':
           g_name = g_name_4
+          setGuardianType(unit_id, '4')
           break;
         case 'C':
           g_name = g_name_c
