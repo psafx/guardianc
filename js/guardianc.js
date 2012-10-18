@@ -139,7 +139,7 @@ var s_stat = [
       })
     },
     setGuardianType = function(unit_id, type) {
-      var select = $('#g-type-' + unit_id)
+      var select = $('#type-' + unit_id)
       if (select.prop) {
         var options = select.prop('options')
       } else {
@@ -156,7 +156,7 @@ var s_stat = [
       select.trigger('liszt:updated')
     },
     setGuardianName = function(unit_id, star) {
-      var select = $('#g-name-' + unit_id),
+      var select = $('#name-' + unit_id),
           g_name = g_name_5
       if (select.prop) {
         var options = select.prop('options')
@@ -188,8 +188,8 @@ var s_stat = [
       select.trigger('liszt:updated')
     },
     getStat = function(unit_id) {
-      var g_id = $('#g-name-' + unit_id).val(),
-          t_id = $('#g-type-' + unit_id).val(),
+      var g_id = $('#name-' + unit_id).val(),
+          t_id = $('#type-' + unit_id).val(),
           stat_lv1 = '',
           stat_multiplier = '',
           setStatColor = function(data) {
