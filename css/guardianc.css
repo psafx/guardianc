@@ -16,15 +16,19 @@ body {
 }
 
 .container {
-  width: 1148px;
+  width: 1128px;
   margin: 0 auto;
 }
 
 .guardian-unit {
   float: left;
-  width: 280px;
-  margin: 5px 0 5px 5px;
-  border: solid 1px #fff;
+  width: 265px;
+  margin: 5px;
+  padding: 5px 0 5px 5px;
+  border: solid 1px #eee;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
 }
 
 .guardian-wrapper {
@@ -38,7 +42,7 @@ body {
 
 .g-select-header {
   float: left;
-  width: 90px;
+  width: 74px;
   height: 25px;
   font-weight: 700;
   color: #333;
@@ -59,8 +63,11 @@ body {
 
 .g-stat-label {
   display: inline-block;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 14px;
   float: left;
-  width: 40px;
+  width: 24px;
   font-weight: 700;
   color: #333;
 }
@@ -190,16 +197,16 @@ body {
   font-size: 12px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 584px) {
   .container {
-    width: 288px;
+    width: 282px;
   }
   .legend dl,
   .version-info {
-    margin-left: 5px;
+    margin-left: 15px;
   }
   .links ul {
-    padding-left: 5px;
+    padding-left: 15px;
   }
   .unit-3,
   .unit-4 {
@@ -207,9 +214,9 @@ body {
   }
 }
 
-@media screen and (min-width: 601px) and (max-width: 880px) {
+@media screen and (min-width: 585px) and (max-width: 866px) {
   .container {
-    width: 574px;
+    width: 564px;
   }
   .unit-3,
   .unit-4 {
@@ -217,9 +224,9 @@ body {
   }
 }
 
-@media screen and (min-width: 881px) and (max-width: 1170px) {
+@media screen and (min-width: 867px) and (max-width: 1133px) {
   .container {
-    width: 861px;
+    width: 846px;
   }
   .unit-4 {
     display: none;
