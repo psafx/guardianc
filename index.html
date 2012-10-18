@@ -8,7 +8,7 @@
     <meta name="description" content="Guardian Cross: Guardian Stat Info, Check/Compare stat of your 4/5 Stars Guardian.">
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/chosen.min.css">
-    <link rel="stylesheet" href="css/guardianc.min.css?v=201210181623">
+    <link rel="stylesheet" href="css/guardianc.min.css?v=201210181711">
     <script src="//code.jquery.com/jquery-1.8.2.min.js"></script>
     <script>!window.jQuery && document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
     <script src="js/chosen.jquery.min.js"></script>
@@ -67,356 +67,366 @@
 </script>
   </head>
   <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="container">
       <div class="header">
         <div class="link-header">Guardian Stat Info</div>
       </div>
-      <div class="guardian-unit unit-1">
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Star</span>
-          <select id="g-star-1" class="g-select">
-            <option value="5" selected="selected">☆☆☆☆☆</option>
-            <option value="4">☆☆☆☆</option>
-            <option value="C">Coliseum</option>
-            <option value="P">Promo</option>
-          </select>
+      <div class="guardian-container">
+        <div class="guardian-unit unit-1">
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Star</span>
+            <select id="g-star-1" class="g-select">
+              <option value="5" selected="selected">☆☆☆☆☆</option>
+              <option value="4">☆☆☆☆</option>
+              <option value="C">Coliseum</option>
+              <option value="P">Promo</option>
+            </select>
+          </div>
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Guardian</span>
+            <select id="g-name-1" class="g-select">
+            </select>
+          </div>
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Type</span>
+            <select id="g-type-1" class="g-select">
+              <option value="Cool" selected="selected">Cool</option>
+              <option value="Ace">Ace</option>
+              <option value="Chaotic">Chaotic</option>
+              <option value="Sexy">Sexy</option>
+              <option value="Powerful">Powerful</option>
+              <option value="Brave">Brave</option>
+              <option value="Fast">Fast</option>
+              <option value="Intelligent">Intelligent</option>
+            </select>
+          </div>
+          <div class="guardian-row clearfix guardian-data">
+            <ul class="g-stat">
+              <li class="g-stat-label">&nbsp;</li>
+              <li class="g-stat-value g-stat-header">Cool<br>Lv1</li>
+              <li class="g-stat-value g-stat-header">Type<br>Lv1</li>
+              <li class="g-stat-value g-stat-header">Cool<br>Lv60</li>
+              <li class="g-stat-value g-stat-header">Type<br>Lv60</li>
+              <li class="g-stat-value g-stat-header">Max</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">HP</li>
+              <li id="base-hp-1" class="g-stat-value base">0</li>
+              <li id="type-hp-1" class="g-stat-value type">0</li>
+              <li id="cool-hp-1" class="g-stat-value cool">0</li>
+              <li id="stat-hp-1" class="g-stat-value stat">0</li>
+              <li id="max-hp-1" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">MP</li>
+              <li id="base-mp-1" class="g-stat-value base">0</li>
+              <li id="type-mp-1" class="g-stat-value type">0</li>
+              <li id="cool-mp-1" class="g-stat-value cool">0</li>
+              <li id="stat-mp-1" class="g-stat-value stat">0</li>
+              <li id="max-mp-1" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">ATK</li>
+              <li id="base-atk-1" class="g-stat-value base">0</li>
+              <li id="type-atk-1" class="g-stat-value type">0</li>
+              <li id="cool-atk-1" class="g-stat-value cool">0</li>
+              <li id="stat-atk-1" class="g-stat-value stat">0</li>
+              <li id="max-atk-1" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">DEF</li>
+              <li id="base-def-1" class="g-stat-value base">0</li>
+              <li id="type-def-1" class="g-stat-value type">0</li>
+              <li id="cool-def-1" class="g-stat-value cool">0</li>
+              <li id="stat-def-1" class="g-stat-value stat">0</li>
+              <li id="max-def-1" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">AGI</li>
+              <li id="base-agi-1" class="g-stat-value base">0</li>
+              <li id="type-agi-1" class="g-stat-value type">0</li>
+              <li id="cool-agi-1" class="g-stat-value cool">0</li>
+              <li id="stat-agi-1" class="g-stat-value stat">0</li>
+              <li id="max-agi-1" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">WIS</li>
+              <li id="base-wis-1" class="g-stat-value base">0</li>
+              <li id="type-wis-1" class="g-stat-value type">0</li>
+              <li id="cool-wis-1" class="g-stat-value cool">0</li>
+              <li id="stat-wis-1" class="g-stat-value stat">0</li>
+              <li id="max-wis-1" class="g-stat-value max">0</li>
+            </ul>
+          </div>
         </div>
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Guardian</span>
-          <select id="g-name-1" class="g-select">
-          </select>
+        <div class="guardian-unit unit-2">
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Star</span>
+            <select id="g-star-2" class="g-select">
+              <option value="5" selected="selected">☆☆☆☆☆</option>
+              <option value="4">☆☆☆☆</option>
+              <option value="C">Coliseum</option>
+              <option value="P">Promo</option>
+            </select>
+          </div>
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Guardian</span>
+            <select id="g-name-2" class="g-select">
+            </select>
+          </div>
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Type</span>
+            <select id="g-type-2" class="g-select">
+              <option value="Cool" selected="selected">Cool</option>
+              <option value="Ace">Ace</option>
+              <option value="Chaotic">Chaotic</option>
+              <option value="Sexy">Sexy</option>
+              <option value="Powerful">Powerful</option>
+              <option value="Brave">Brave</option>
+              <option value="Fast">Fast</option>
+              <option value="Intelligent">Intelligent</option>
+            </select>
+          </div>
+          <div class="guardian-row clearfix guardian-data">
+            <ul class="g-stat">
+              <li class="g-stat-label">&nbsp;</li>
+              <li class="g-stat-value g-stat-header">Cool<br>Lv1</li>
+              <li class="g-stat-value g-stat-header">Type<br>Lv1</li>
+              <li class="g-stat-value g-stat-header">Cool<br>Lv60</li>
+              <li class="g-stat-value g-stat-header">Type<br>Lv60</li>
+              <li class="g-stat-value g-stat-header">Max</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">HP</li>
+              <li id="base-hp-2" class="g-stat-value base">0</li>
+              <li id="type-hp-2" class="g-stat-value type">0</li>
+              <li id="cool-hp-2" class="g-stat-value cool">0</li>
+              <li id="stat-hp-2" class="g-stat-value stat">0</li>
+              <li id="max-hp-2" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">MP</li>
+              <li id="base-mp-2" class="g-stat-value base">0</li>
+              <li id="type-mp-2" class="g-stat-value type">0</li>
+              <li id="cool-mp-2" class="g-stat-value cool">0</li>
+              <li id="stat-mp-2" class="g-stat-value stat">0</li>
+              <li id="max-mp-2" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">ATK</li>
+              <li id="base-atk-2" class="g-stat-value base">0</li>
+              <li id="type-atk-2" class="g-stat-value type">0</li>
+              <li id="cool-atk-2" class="g-stat-value cool">0</li>
+              <li id="stat-atk-2" class="g-stat-value stat">0</li>
+              <li id="max-atk-2" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">DEF</li>
+              <li id="base-def-2" class="g-stat-value base">0</li>
+              <li id="type-def-2" class="g-stat-value type">0</li>
+              <li id="cool-def-2" class="g-stat-value cool">0</li>
+              <li id="stat-def-2" class="g-stat-value stat">0</li>
+              <li id="max-def-2" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">AGI</li>
+              <li id="base-agi-2" class="g-stat-value base">0</li>
+              <li id="type-agi-2" class="g-stat-value type">0</li>
+              <li id="cool-agi-2" class="g-stat-value cool">0</li>
+              <li id="stat-agi-2" class="g-stat-value stat">0</li>
+              <li id="max-agi-2" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">WIS</li>
+              <li id="base-wis-2" class="g-stat-value base">0</li>
+              <li id="type-wis-2" class="g-stat-value type">0</li>
+              <li id="cool-wis-2" class="g-stat-value cool">0</li>
+              <li id="stat-wis-2" class="g-stat-value stat">0</li>
+              <li id="max-wis-2" class="g-stat-value max">0</li>
+            </ul>
+          </div>
         </div>
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Type</span>
-          <select id="g-type-1" class="g-select">
-            <option value="Cool" selected="selected">Cool</option>
-            <option value="Ace">Ace</option>
-            <option value="Chaotic">Chaotic</option>
-            <option value="Sexy">Sexy</option>
-            <option value="Powerful">Powerful</option>
-            <option value="Brave">Brave</option>
-            <option value="Fast">Fast</option>
-            <option value="Intelligent">Intelligent</option>
-          </select>
+        <div class="guardian-unit unit-3">
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Star</span>
+            <select id="g-star-3" class="g-select">
+              <option value="5" selected="selected">☆☆☆☆☆</option>
+              <option value="4">☆☆☆☆</option>
+              <option value="C">Coliseum</option>
+              <option value="P">Promo</option>
+            </select>
+          </div>
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Guardian</span>
+            <select id="g-name-3" class="g-select">
+            </select>
+          </div>
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Type</span>
+            <select id="g-type-3" class="g-select">
+              <option value="Cool" selected="selected">Cool</option>
+              <option value="Ace">Ace</option>
+              <option value="Chaotic">Chaotic</option>
+              <option value="Sexy">Sexy</option>
+              <option value="Powerful">Powerful</option>
+              <option value="Brave">Brave</option>
+              <option value="Fast">Fast</option>
+              <option value="Intelligent">Intelligent</option>
+            </select>
+          </div>
+          <div class="guardian-row clearfix guardian-data">
+            <ul class="g-stat">
+              <li class="g-stat-label">&nbsp;</li>
+              <li class="g-stat-value g-stat-header">Cool<br>Lv1</li>
+              <li class="g-stat-value g-stat-header">Type<br>Lv1</li>
+              <li class="g-stat-value g-stat-header">Cool<br>Lv60</li>
+              <li class="g-stat-value g-stat-header">Type<br>Lv60</li>
+              <li class="g-stat-value g-stat-header">Max</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">HP</li>
+              <li id="base-hp-3" class="g-stat-value base">0</li>
+              <li id="type-hp-3" class="g-stat-value type">0</li>
+              <li id="cool-hp-3" class="g-stat-value cool">0</li>
+              <li id="stat-hp-3" class="g-stat-value stat">0</li>
+              <li id="max-hp-3" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">MP</li>
+              <li id="base-mp-3" class="g-stat-value base">0</li>
+              <li id="type-mp-3" class="g-stat-value type">0</li>
+              <li id="cool-mp-3" class="g-stat-value cool">0</li>
+              <li id="stat-mp-3" class="g-stat-value stat">0</li>
+              <li id="max-mp-3" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">ATK</li>
+              <li id="base-atk-3" class="g-stat-value base">0</li>
+              <li id="type-atk-3" class="g-stat-value type">0</li>
+              <li id="cool-atk-3" class="g-stat-value cool">0</li>
+              <li id="stat-atk-3" class="g-stat-value stat">0</li>
+              <li id="max-atk-3" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">DEF</li>
+              <li id="base-def-3" class="g-stat-value base">0</li>
+              <li id="type-def-3" class="g-stat-value type">0</li>
+              <li id="cool-def-3" class="g-stat-value cool">0</li>
+              <li id="stat-def-3" class="g-stat-value stat">0</li>
+              <li id="max-def-3" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">AGI</li>
+              <li id="base-agi-3" class="g-stat-value base">0</li>
+              <li id="type-agi-3" class="g-stat-value type">0</li>
+              <li id="cool-agi-3" class="g-stat-value cool">0</li>
+              <li id="stat-agi-3" class="g-stat-value stat">0</li>
+              <li id="max-agi-3" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">WIS</li>
+              <li id="base-wis-3" class="g-stat-value base">0</li>
+              <li id="type-wis-3" class="g-stat-value type">0</li>
+              <li id="cool-wis-3" class="g-stat-value cool">0</li>
+              <li id="stat-wis-3" class="g-stat-value stat">0</li>
+              <li id="max-wis-3" class="g-stat-value max">0</li>
+            </ul>
+          </div>
         </div>
-        <div class="guardian-wrapper clearfix guardian-data">
-          <ul class="g-stat">
-            <li class="g-stat-label">&nbsp;</li>
-            <li class="g-stat-value g-stat-header">Cool<br>Lv1</li>
-            <li class="g-stat-value g-stat-header">Type<br>Lv1</li>
-            <li class="g-stat-value g-stat-header">Cool<br>Lv60</li>
-            <li class="g-stat-value g-stat-header">Type<br>Lv60</li>
-            <li class="g-stat-value g-stat-header">Max</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">HP</li>
-            <li id="base-hp-1" class="g-stat-value base">0</li>
-            <li id="type-hp-1" class="g-stat-value type">0</li>
-            <li id="cool-hp-1" class="g-stat-value cool">0</li>
-            <li id="stat-hp-1" class="g-stat-value stat">0</li>
-            <li id="max-hp-1" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">MP</li>
-            <li id="base-mp-1" class="g-stat-value base">0</li>
-            <li id="type-mp-1" class="g-stat-value type">0</li>
-            <li id="cool-mp-1" class="g-stat-value cool">0</li>
-            <li id="stat-mp-1" class="g-stat-value stat">0</li>
-            <li id="max-mp-1" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">ATK</li>
-            <li id="base-atk-1" class="g-stat-value base">0</li>
-            <li id="type-atk-1" class="g-stat-value type">0</li>
-            <li id="cool-atk-1" class="g-stat-value cool">0</li>
-            <li id="stat-atk-1" class="g-stat-value stat">0</li>
-            <li id="max-atk-1" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">DEF</li>
-            <li id="base-def-1" class="g-stat-value base">0</li>
-            <li id="type-def-1" class="g-stat-value type">0</li>
-            <li id="cool-def-1" class="g-stat-value cool">0</li>
-            <li id="stat-def-1" class="g-stat-value stat">0</li>
-            <li id="max-def-1" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">AGI</li>
-            <li id="base-agi-1" class="g-stat-value base">0</li>
-            <li id="type-agi-1" class="g-stat-value type">0</li>
-            <li id="cool-agi-1" class="g-stat-value cool">0</li>
-            <li id="stat-agi-1" class="g-stat-value stat">0</li>
-            <li id="max-agi-1" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">WIS</li>
-            <li id="base-wis-1" class="g-stat-value base">0</li>
-            <li id="type-wis-1" class="g-stat-value type">0</li>
-            <li id="cool-wis-1" class="g-stat-value cool">0</li>
-            <li id="stat-wis-1" class="g-stat-value stat">0</li>
-            <li id="max-wis-1" class="g-stat-value max">0</li>
-          </ul>
-        </div>
-      </div>
-      <div class="guardian-unit unit-2">
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Star</span>
-          <select id="g-star-2" class="g-select">
-            <option value="5" selected="selected">☆☆☆☆☆</option>
-            <option value="4">☆☆☆☆</option>
-            <option value="C">Coliseum</option>
-            <option value="P">Promo</option>
-          </select>
-        </div>
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Guardian</span>
-          <select id="g-name-2" class="g-select">
-          </select>
-        </div>
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Type</span>
-          <select id="g-type-2" class="g-select">
-            <option value="Cool" selected="selected">Cool</option>
-            <option value="Ace">Ace</option>
-            <option value="Chaotic">Chaotic</option>
-            <option value="Sexy">Sexy</option>
-            <option value="Powerful">Powerful</option>
-            <option value="Brave">Brave</option>
-            <option value="Fast">Fast</option>
-            <option value="Intelligent">Intelligent</option>
-          </select>
-        </div>
-        <div class="guardian-wrapper clearfix guardian-data">
-          <ul class="g-stat">
-            <li class="g-stat-label">&nbsp;</li>
-            <li class="g-stat-value g-stat-header">Cool<br>Lv1</li>
-            <li class="g-stat-value g-stat-header">Type<br>Lv1</li>
-            <li class="g-stat-value g-stat-header">Cool<br>Lv60</li>
-            <li class="g-stat-value g-stat-header">Type<br>Lv60</li>
-            <li class="g-stat-value g-stat-header">Max</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">HP</li>
-            <li id="base-hp-2" class="g-stat-value base">0</li>
-            <li id="type-hp-2" class="g-stat-value type">0</li>
-            <li id="cool-hp-2" class="g-stat-value cool">0</li>
-            <li id="stat-hp-2" class="g-stat-value stat">0</li>
-            <li id="max-hp-2" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">MP</li>
-            <li id="base-mp-2" class="g-stat-value base">0</li>
-            <li id="type-mp-2" class="g-stat-value type">0</li>
-            <li id="cool-mp-2" class="g-stat-value cool">0</li>
-            <li id="stat-mp-2" class="g-stat-value stat">0</li>
-            <li id="max-mp-2" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">ATK</li>
-            <li id="base-atk-2" class="g-stat-value base">0</li>
-            <li id="type-atk-2" class="g-stat-value type">0</li>
-            <li id="cool-atk-2" class="g-stat-value cool">0</li>
-            <li id="stat-atk-2" class="g-stat-value stat">0</li>
-            <li id="max-atk-2" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">DEF</li>
-            <li id="base-def-2" class="g-stat-value base">0</li>
-            <li id="type-def-2" class="g-stat-value type">0</li>
-            <li id="cool-def-2" class="g-stat-value cool">0</li>
-            <li id="stat-def-2" class="g-stat-value stat">0</li>
-            <li id="max-def-2" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">AGI</li>
-            <li id="base-agi-2" class="g-stat-value base">0</li>
-            <li id="type-agi-2" class="g-stat-value type">0</li>
-            <li id="cool-agi-2" class="g-stat-value cool">0</li>
-            <li id="stat-agi-2" class="g-stat-value stat">0</li>
-            <li id="max-agi-2" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">WIS</li>
-            <li id="base-wis-2" class="g-stat-value base">0</li>
-            <li id="type-wis-2" class="g-stat-value type">0</li>
-            <li id="cool-wis-2" class="g-stat-value cool">0</li>
-            <li id="stat-wis-2" class="g-stat-value stat">0</li>
-            <li id="max-wis-2" class="g-stat-value max">0</li>
-          </ul>
-        </div>
-      </div>
-      <div class="guardian-unit unit-3">
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Star</span>
-          <select id="g-star-3" class="g-select">
-            <option value="5" selected="selected">☆☆☆☆☆</option>
-            <option value="4">☆☆☆☆</option>
-            <option value="C">Coliseum</option>
-            <option value="P">Promo</option>
-          </select>
-        </div>
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Guardian</span>
-          <select id="g-name-3" class="g-select">
-          </select>
-        </div>
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Type</span>
-          <select id="g-type-3" class="g-select">
-            <option value="Cool" selected="selected">Cool</option>
-            <option value="Ace">Ace</option>
-            <option value="Chaotic">Chaotic</option>
-            <option value="Sexy">Sexy</option>
-            <option value="Powerful">Powerful</option>
-            <option value="Brave">Brave</option>
-            <option value="Fast">Fast</option>
-            <option value="Intelligent">Intelligent</option>
-          </select>
-        </div>
-        <div class="guardian-wrapper clearfix guardian-data">
-          <ul class="g-stat">
-            <li class="g-stat-label">&nbsp;</li>
-            <li class="g-stat-value g-stat-header">Cool<br>Lv1</li>
-            <li class="g-stat-value g-stat-header">Type<br>Lv1</li>
-            <li class="g-stat-value g-stat-header">Cool<br>Lv60</li>
-            <li class="g-stat-value g-stat-header">Type<br>Lv60</li>
-            <li class="g-stat-value g-stat-header">Max</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">HP</li>
-            <li id="base-hp-3" class="g-stat-value base">0</li>
-            <li id="type-hp-3" class="g-stat-value type">0</li>
-            <li id="cool-hp-3" class="g-stat-value cool">0</li>
-            <li id="stat-hp-3" class="g-stat-value stat">0</li>
-            <li id="max-hp-3" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">MP</li>
-            <li id="base-mp-3" class="g-stat-value base">0</li>
-            <li id="type-mp-3" class="g-stat-value type">0</li>
-            <li id="cool-mp-3" class="g-stat-value cool">0</li>
-            <li id="stat-mp-3" class="g-stat-value stat">0</li>
-            <li id="max-mp-3" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">ATK</li>
-            <li id="base-atk-3" class="g-stat-value base">0</li>
-            <li id="type-atk-3" class="g-stat-value type">0</li>
-            <li id="cool-atk-3" class="g-stat-value cool">0</li>
-            <li id="stat-atk-3" class="g-stat-value stat">0</li>
-            <li id="max-atk-3" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">DEF</li>
-            <li id="base-def-3" class="g-stat-value base">0</li>
-            <li id="type-def-3" class="g-stat-value type">0</li>
-            <li id="cool-def-3" class="g-stat-value cool">0</li>
-            <li id="stat-def-3" class="g-stat-value stat">0</li>
-            <li id="max-def-3" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">AGI</li>
-            <li id="base-agi-3" class="g-stat-value base">0</li>
-            <li id="type-agi-3" class="g-stat-value type">0</li>
-            <li id="cool-agi-3" class="g-stat-value cool">0</li>
-            <li id="stat-agi-3" class="g-stat-value stat">0</li>
-            <li id="max-agi-3" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">WIS</li>
-            <li id="base-wis-3" class="g-stat-value base">0</li>
-            <li id="type-wis-3" class="g-stat-value type">0</li>
-            <li id="cool-wis-3" class="g-stat-value cool">0</li>
-            <li id="stat-wis-3" class="g-stat-value stat">0</li>
-            <li id="max-wis-3" class="g-stat-value max">0</li>
-          </ul>
-        </div>
-      </div>
-      <div class="guardian-unit unit-4">
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Star</span>
-          <select id="g-star-4" class="g-select">
-            <option value="5" selected="selected">☆☆☆☆☆</option>
-            <option value="4">☆☆☆☆</option>
-            <option value="C">Coliseum</option>
-            <option value="P">Promo</option>
-          </select>
-        </div>
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Guardian</span>
-          <select id="g-name-4" class="g-select">
-          </select>
-        </div>
-        <div class="guardian-wrapper clearfix">
-          <span class="g-select-header">Type</span>
-          <select id="g-type-4" class="g-select">
-            <option value="Cool" selected="selected">Cool</option>
-            <option value="Ace">Ace</option>
-            <option value="Chaotic">Chaotic</option>
-            <option value="Sexy">Sexy</option>
-            <option value="Powerful">Powerful</option>
-            <option value="Brave">Brave</option>
-            <option value="Fast">Fast</option>
-            <option value="Intelligent">Intelligent</option>
-          </select>
-        </div>
-        <div class="guardian-wrapper clearfix guardian-data">
-          <ul class="g-stat">
-            <li class="g-stat-label">&nbsp;</li>
-            <li class="g-stat-value g-stat-header">Cool<br>Lv1</li>
-            <li class="g-stat-value g-stat-header">Type<br>Lv1</li>
-            <li class="g-stat-value g-stat-header">Cool<br>Lv60</li>
-            <li class="g-stat-value g-stat-header">Type<br>Lv60</li>
-            <li class="g-stat-value g-stat-header">Max</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">HP</li>
-            <li id="base-hp-4" class="g-stat-value base">0</li>
-            <li id="type-hp-4" class="g-stat-value type">0</li>
-            <li id="cool-hp-4" class="g-stat-value cool">0</li>
-            <li id="stat-hp-4" class="g-stat-value stat">0</li>
-            <li id="max-hp-4" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">MP</li>
-            <li id="base-mp-4" class="g-stat-value base">0</li>
-            <li id="type-mp-4" class="g-stat-value type">0</li>
-            <li id="cool-mp-4" class="g-stat-value cool">0</li>
-            <li id="stat-mp-4" class="g-stat-value stat">0</li>
-            <li id="max-mp-4" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">ATK</li>
-            <li id="base-atk-4" class="g-stat-value base">0</li>
-            <li id="type-atk-4" class="g-stat-value type">0</li>
-            <li id="cool-atk-4" class="g-stat-value cool">0</li>
-            <li id="stat-atk-4" class="g-stat-value stat">0</li>
-            <li id="max-atk-4" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">DEF</li>
-            <li id="base-def-4" class="g-stat-value base">0</li>
-            <li id="type-def-4" class="g-stat-value type">0</li>
-            <li id="cool-def-4" class="g-stat-value cool">0</li>
-            <li id="stat-def-4" class="g-stat-value stat">0</li>
-            <li id="max-def-4" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">AGI</li>
-            <li id="base-agi-4" class="g-stat-value base">0</li>
-            <li id="type-agi-4" class="g-stat-value type">0</li>
-            <li id="cool-agi-4" class="g-stat-value cool">0</li>
-            <li id="stat-agi-4" class="g-stat-value stat">0</li>
-            <li id="max-agi-4" class="g-stat-value max">0</li>
-          </ul>
-          <ul class="g-stat">
-            <li class="g-stat-label">WIS</li>
-            <li id="base-wis-4" class="g-stat-value base">0</li>
-            <li id="type-wis-4" class="g-stat-value type">0</li>
-            <li id="cool-wis-4" class="g-stat-value cool">0</li>
-            <li id="stat-wis-4" class="g-stat-value stat">0</li>
-            <li id="max-wis-4" class="g-stat-value max">0</li>
-          </ul>
+        <div class="guardian-unit unit-4">
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Star</span>
+            <select id="g-star-4" class="g-select">
+              <option value="5" selected="selected">☆☆☆☆☆</option>
+              <option value="4">☆☆☆☆</option>
+              <option value="C">Coliseum</option>
+              <option value="P">Promo</option>
+            </select>
+          </div>
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Guardian</span>
+            <select id="g-name-4" class="g-select">
+            </select>
+          </div>
+          <div class="guardian-row clearfix">
+            <span class="g-select-header">Type</span>
+            <select id="g-type-4" class="g-select">
+              <option value="Cool" selected="selected">Cool</option>
+              <option value="Ace">Ace</option>
+              <option value="Chaotic">Chaotic</option>
+              <option value="Sexy">Sexy</option>
+              <option value="Powerful">Powerful</option>
+              <option value="Brave">Brave</option>
+              <option value="Fast">Fast</option>
+              <option value="Intelligent">Intelligent</option>
+            </select>
+          </div>
+          <div class="guardian-row clearfix guardian-data">
+            <ul class="g-stat">
+              <li class="g-stat-label">&nbsp;</li>
+              <li class="g-stat-value g-stat-header">Cool<br>Lv1</li>
+              <li class="g-stat-value g-stat-header">Type<br>Lv1</li>
+              <li class="g-stat-value g-stat-header">Cool<br>Lv60</li>
+              <li class="g-stat-value g-stat-header">Type<br>Lv60</li>
+              <li class="g-stat-value g-stat-header">Max</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">HP</li>
+              <li id="base-hp-4" class="g-stat-value base">0</li>
+              <li id="type-hp-4" class="g-stat-value type">0</li>
+              <li id="cool-hp-4" class="g-stat-value cool">0</li>
+              <li id="stat-hp-4" class="g-stat-value stat">0</li>
+              <li id="max-hp-4" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">MP</li>
+              <li id="base-mp-4" class="g-stat-value base">0</li>
+              <li id="type-mp-4" class="g-stat-value type">0</li>
+              <li id="cool-mp-4" class="g-stat-value cool">0</li>
+              <li id="stat-mp-4" class="g-stat-value stat">0</li>
+              <li id="max-mp-4" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">ATK</li>
+              <li id="base-atk-4" class="g-stat-value base">0</li>
+              <li id="type-atk-4" class="g-stat-value type">0</li>
+              <li id="cool-atk-4" class="g-stat-value cool">0</li>
+              <li id="stat-atk-4" class="g-stat-value stat">0</li>
+              <li id="max-atk-4" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">DEF</li>
+              <li id="base-def-4" class="g-stat-value base">0</li>
+              <li id="type-def-4" class="g-stat-value type">0</li>
+              <li id="cool-def-4" class="g-stat-value cool">0</li>
+              <li id="stat-def-4" class="g-stat-value stat">0</li>
+              <li id="max-def-4" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">AGI</li>
+              <li id="base-agi-4" class="g-stat-value base">0</li>
+              <li id="type-agi-4" class="g-stat-value type">0</li>
+              <li id="cool-agi-4" class="g-stat-value cool">0</li>
+              <li id="stat-agi-4" class="g-stat-value stat">0</li>
+              <li id="max-agi-4" class="g-stat-value max">0</li>
+            </ul>
+            <ul class="g-stat">
+              <li class="g-stat-label">WIS</li>
+              <li id="base-wis-4" class="g-stat-value base">0</li>
+              <li id="type-wis-4" class="g-stat-value type">0</li>
+              <li id="cool-wis-4" class="g-stat-value cool">0</li>
+              <li id="stat-wis-4" class="g-stat-value stat">0</li>
+              <li id="max-wis-4" class="g-stat-value max">0</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="legend">
@@ -442,8 +452,11 @@
       <div class="programmer">
         <div class="link-header">Version</div>
         <div class="version-info">
-          v1.48, by <a href="http://facebook.com/psafx">Prasong Aroonruviwat</a>
+          v1.49, by <a href="http://facebook.com/psafx">Prasong Aroonruviwat</a>
         </div>
+      </div>
+      <div class="social">
+        <div class="fb-like" data-href="http://psafx.github.com/guardianc" data-send="false" data-width="310" data-show-faces="true"></div>
       </div>
     </div>
   </body>

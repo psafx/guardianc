@@ -20,18 +20,23 @@ body {
   margin: 0 auto;
 }
 
+.guardian-container {
+  overflow: hidden;
+}
+
 .guardian-unit {
   float: left;
   width: 265px;
   margin: 5px;
   padding: 5px 0 5px 5px;
   border: solid 1px #eee;
+  overflow: hidden;
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
           border-radius: 5px;
 }
 
-.guardian-wrapper {
+.guardian-row {
   margin-top: 2px;
   clear: both;
 }
@@ -150,6 +155,7 @@ body {
 }
 
 .header,
+.social,
 .legend,
 .links,
 .programmer {
