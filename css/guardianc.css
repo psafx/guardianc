@@ -20,16 +20,11 @@ body {
   margin: 0 auto;
 }
 
-.guardian-container {
-  overflow: hidden;
-}
-
 .unit {
   float: left;
   width: 265px;
   padding: 5px 0 5px 5px;
   margin: 5px 5px 0 5px;
-  overflow: hidden;
   border: solid 1px #eee;
   -webkit-border-radius: 5px;
      -moz-border-radius: 5px;
@@ -188,7 +183,7 @@ body {
 }
 
 .legend dl {
-  margin: 0 0 0 40px;
+  margin: 0 0 0 20px;
   font-size: 12px;
 }
 
@@ -205,11 +200,12 @@ body {
 
 .links ul {
   margin: 0;
+  padding-left: 20px;
   list-style: none;
 }
 
 .version-info {
-  margin-left: 40px;
+  margin-left: 20px;
   font-size: 12px;
 }
 
@@ -222,13 +218,6 @@ body {
   }
   .unit-2 {
     margin-left: 0!important;
-  }
-  .legend dl,
-  .version-info {
-    margin-left: 20px;
-  }
-  .links ul {
-    padding-left: 20px;
   }
   .unit-3,
   .unit-4 {
