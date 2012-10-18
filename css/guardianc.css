@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-  width: 861px;
+  width: 1148px;
   margin: 0 auto;
 }
 
@@ -201,7 +201,8 @@ body {
   .links ul {
     padding-left: 5px;
   }
-  .unit-3 {
+  .unit-3,
+  .unit-4 {
     display: none;
   }
 }
@@ -210,7 +211,17 @@ body {
   .container {
     width: 574px;
   }
-  .unit-3 {
+  .unit-3,
+  .unit-4 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 881px) and (max-width: 1170px) {
+  .container {
+    width: 861px;
+  }
+  .unit-4 {
     display: none;
   }
 }
