@@ -21,59 +21,59 @@ var s_stat = [
     ]
 
   , g_name_c = [
-        {"g_id":"100011", "g_name":"Almighty Leviathan"}
+        {"g_id":"100031", "g_name":"Almighty Ifrit"}
+      , {"g_id":"100032", "g_name":"Mighty Ifrit"}
+      , {"g_id":"100011", "g_name":"Almighty Leviathan"}
       , {"g_id":"100012", "g_name":"Mighty Leviathan"}
       , {"g_id":"100021", "g_name":"Almighty Titan"}
       , {"g_id":"100022", "g_name":"Mighty Titan"}
-      , {"g_id":"100031", "g_name":"Almighty Ifrit"}
-      , {"g_id":"100032", "g_name":"Mighty Ifrit"}
-      , {"g_id":"100041", "g_name":"Almighty Valkyrie"}
-      , {"g_id":"100042", "g_name":"Mighty Valkyrie"}
       , {"g_id":"100051", "g_name":"Almighty Pumpkin Chunkin' Titan"}
       , {"g_id":"100052", "g_name":"Mighty Pumpkin Chunkin' Titan"}
       , {"g_id":"100053", "g_name":"Great Pumpkin Chunkin' Titan"}
+      , {"g_id":"100041", "g_name":"Almighty Valkyrie"}
+      , {"g_id":"100042", "g_name":"Mighty Valkyrie"}
     ]
 
   , g_name_5 = [
-        {"g_id":"900001", "g_name":"Bahamut"}
+        {"g_id":"040017", "g_name":"Apsara"}
+      , {"g_id":"040019", "g_name":"Azi Dahaka"}
+      , {"g_id":"900001", "g_name":"Bahamut"}
+      , {"g_id":"040009", "g_name":"Dominion"}
+      , {"g_id":"040025", "g_name":"Frankenstein"}
+      , {"g_id":"040020", "g_name":"Garguntua"}
+      , {"g_id":"040001", "g_name":"Ifrit"}
+      , {"g_id":"040008", "g_name":"Juggernaut"}
       , {"g_id":"040012", "g_name":"Leviathan"}
+      , {"g_id":"040004", "g_name":"Lightning Lord"}
+      , {"g_id":"040010", "g_name":"Mephistopheles"}
+      , {"g_id":"040011", "g_name":"Phoenix"}
       , {"g_id":"040003", "g_name":"Titan"}
       , {"g_id":"040007", "g_name":"Vampire Matron"}
-      , {"g_id":"040011", "g_name":"Phoenix"}
       , {"g_id":"040002", "g_name":"Valkyrie"}
-      , {"g_id":"040001", "g_name":"Ifrit"}
-      , {"g_id":"040004", "g_name":"Lightning Lord"}
-      , {"g_id":"040008", "g_name":"Juggernaut"}
-      , {"g_id":"040009", "g_name":"Dominion"}
-      , {"g_id":"040010", "g_name":"Mephistopheles"}
-      , {"g_id":"040017", "g_name":"Apsara"}
-      , {"g_id":"040019", "g_name":"Azi Dahaka"}
-      , {"g_id":"040020", "g_name":"Garguntua"}
-      , {"g_id":"040025", "g_name":"Frankenstein"}
     ]
 
   , g_name_4 = [
-        {"g_id":"030003", "g_name":"Kraken"}
-      , {"g_id":"030006", "g_name":"Jormungandr"}
-      , {"g_id":"030008", "g_name":"Hecatoncheir"}
-      , {"g_id":"030009", "g_name":"Ramiel"}
-      , {"g_id":"030013", "g_name":"Vampire"}
-      , {"g_id":"030017", "g_name":"Angel"}
-      , {"g_id":"030027", "g_name":"Pazuzu"}
-      , {"g_id":"030005", "g_name":"Golem"}
-      , {"g_id":"030010", "g_name":"Garuda"}
-      , {"g_id":"030011", "g_name":"Wyvern"}
-      , {"g_id":"030012", "g_name":"Medusa"}
-      , {"g_id":"030018", "g_name":"Fenrir"}
-      , {"g_id":"030025", "g_name":"Giant"}
-      , {"g_id":"030026", "g_name":"Dullahan"}
-      , {"g_id":"030028", "g_name":"Pabilsag"}
-      , {"g_id":"030001", "g_name":"Suzaku"}
-      , {"g_id":"030004", "g_name":"Genbu"}
-      , {"g_id":"030007", "g_name":"Seiryu"}
+        {"g_id":"030017", "g_name":"Angel"}
       , {"g_id":"030015", "g_name":"Byakko"}
+      , {"g_id":"030026", "g_name":"Dullahan"}
+      , {"g_id":"030018", "g_name":"Fenrir"}
+      , {"g_id":"030010", "g_name":"Garuda"}
+      , {"g_id":"030004", "g_name":"Genbu"}
+      , {"g_id":"030025", "g_name":"Giant"}
+      , {"g_id":"030005", "g_name":"Golem"}
+      , {"g_id":"030008", "g_name":"Hecatoncheir"}
+      , {"g_id":"030006", "g_name":"Jormungandr"}
+      , {"g_id":"030003", "g_name":"Kraken"}
+      , {"g_id":"030012", "g_name":"Medusa"}
+      , {"g_id":"030028", "g_name":"Pabilsag"}
+      , {"g_id":"030027", "g_name":"Pazuzu"}
       , {"g_id":"030030", "g_name":"Qiong-Ji"}
+      , {"g_id":"030009", "g_name":"Ramiel"}
       , {"g_id":"030031", "g_name":"Revenant"}
+      , {"g_id":"030007", "g_name":"Seiryu"}
+      , {"g_id":"030001", "g_name":"Suzaku"}
+      , {"g_id":"030013", "g_name":"Vampire"}
+      , {"g_id":"030011", "g_name":"Wyvern"}
     ]
 
   , g_type = [
