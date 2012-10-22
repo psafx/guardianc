@@ -423,7 +423,7 @@
       <div class="about">
         <div class="link-header">About</div>
         <div class="version-info">
-          Version 2.03, by <a href="http://facebook.com/psafx">Prasong Aroonruviwat</a>
+          Version 2.04, by <a href="http://facebook.com/psafx">Prasong Aroonruviwat</a>
         </div>
       </div>
     </div>
@@ -432,25 +432,6 @@
 <script src="js/chosen.jquery.min.js"></script>
 <script src="js/guardianc.min.js"></script>
 <script>
-  $(document).ready(function() {
-    setGuardianName('1', '5')
-    $('#name-1').chosen().change({unit_id: '1'}, g_change)
-    $('#type-1').chosen({disable_search_threshold: 9}).change({unit_id: '1'}, g_change)
-    $('#star-1').chosen({disable_search_threshold: 4}).change({unit_id: '1'}, g_star_change)
-    setGuardianName('2', '5')
-    $('#name-2').chosen().change({unit_id: '2'}, g_change)
-    $('#type-2').chosen({disable_search_threshold: 9}).change({unit_id: '2'}, g_change)
-    $('#star-2').chosen({disable_search_threshold: 4}).change({unit_id: '2'}, g_star_change)
-    setGuardianName('3', '5')
-    $('#name-3').chosen().change({unit_id: '3'}, g_change)
-    $('#type-3').chosen({disable_search_threshold: 9}).change({unit_id: '3'}, g_change)
-    $('#star-3').chosen({disable_search_threshold: 4}).change({unit_id: '3'}, g_star_change)
-    setGuardianName('4', '5')
-    $('#name-4').chosen().change({unit_id: '4'}, g_change)
-    $('#type-4').chosen({disable_search_threshold: 9}).change({unit_id: '4'}, g_change)
-    $('#star-4').chosen({disable_search_threshold: 4}).change({unit_id: '4'}, g_star_change)
-  })
-
   // Google Analytics
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-35429216-1']);
