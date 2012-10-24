@@ -140,43 +140,33 @@ var s_stat = [
     ]
 
   , clearStat = function(unit_id, chr) {
-      $.each(s_stat, function(s_index, s_value) {
-        $.each(s_attr, function(a_index, a_value) {
-          $('#' + s_value + '-' + a_value + '-' + unit_id).html(chr).removeClass('best-1').removeClass('best-2').removeClass('worst-1')
-        })
-      })
+      for (var i = 0, il = s_stat.length; i < il; i++) {
+        for (var j = 0, jl = s_attr.length; j < jl; j++) {
+          $('#' + s_stat[i] + '-' + s_attr[j] + '-' + unit_id).html(chr).removeClass('best-1').removeClass('best-2').removeClass('worst-1')
+        }
+      }
     }
 
   , setGuardianType = function(unit_id, type) {
-      var options
-        , select = $('#type-' + unit_id)
+      var select = $('#type-' + unit_id)
+        , options = select.prop('options')
 
-      if (select.prop) {
-        options = select.prop('options')
-      } else {
-        options = select.attr('options')
-      }
       select.find('option').remove()
       if (type == 'P') {
         options[options.length] = new Option('Cool', 'Cool')
       } else {
-        $.each(g_type, function(index, value) {
-          options[options.length] = new Option(value.t_id, value.t_id)
-        })
+        for (var i = 0, il = g_type.length; i < il; i++) {
+          options[options.length] = new Option(g_type[i].t_id, g_type[i].t_id)
+        }
       }
       select.trigger('liszt:updated')
     }
 
   , setGuardianName = function(unit_id, star) {
-      var options
-        , select = $('#name-' + unit_id)
+      var select = $('#name-' + unit_id)
+        , options = select.prop('options')
         , g_name = g_name_5
 
-      if (select.prop) {
-        options = select.prop('options')
-      } else {
-        options = select.attr('options')
-      }
       switch (star) {
         case '5':
           setGuardianType(unit_id, '5')
@@ -196,9 +186,9 @@ var s_stat = [
       }
       select.find('option').remove()
       options[options.length] = new Option('Guardian Name', '0')
-      $.each(g_name, function(index, value) {
-        options[options.length] = new Option(value.g_name, value.g_id)
-      })
+      for (var i = 0, il = g_name.length; i < il; i++) {
+        options[options.length] = new Option(g_name[i].g_name, g_name[i].g_id)
+      }
       select.trigger('liszt:updated')
     }
 
@@ -209,63 +199,70 @@ var s_stat = [
         , stat_multiplier = ''
 
         , setStatColor = function(data) {
-            $.each(data, function(index, value) {
-              if (index == '0') {
-                $(value[0]).addClass('best-1')
+            data.sort(function(a, b) {return b[1] - a[1]})
+            for (var i = 0, il = data.length; i < il; i++) {
+              if (i === 0) {
+                $(data[i][0]).addClass('best-1')
               }
-              if (index == '1') {
-                $(value[0]).addClass('best-2')
+              if (i == 1) {
+                $(data[i][0]).addClass('best-2')
               }
-              if (index == '5') {
-                $(value[0]).addClass('worst-1')
+              if (i == 5) {
+                $(data[i][0]).addClass('worst-1')
               }
-            })
+            }
           }
 
       clearStat(unit_id, '0')
-      for (var i = 0, j = g_stat.length; i < j; i++) {
+      for (var i = 0, il = g_stat.length; i < il; i++) {
         if (g_id == g_stat[i].g_id) {
           stat_lv1 = g_stat[i].lv1
         }
       }
       if (stat_lv1 !== '') {
-        for (i = 0, j = g_type.length; i < j; i++) {
-          if (t_id == g_type[i].t_id) {
-            stat_multiplier = g_type[i].t_stat
+        for (var j = 0, jl = g_type.length; j < jl; j++) {
+          if (t_id == g_type[j].t_id) {
+            stat_multiplier = g_type[j].t_stat
           }
         }
-        var multiplier = stat_multiplier.split(' ')
-          , lv1 = stat_lv1.split(' ')
+        var lv1 = stat_lv1.split(' ')
+          , multiplier = stat_multiplier.split(' ')
 
+          /*
         $.each(s_stat, function(s_index, s_value) {
-          var temp = []
           $.each(s_attr, function(a_index, a_value) {
-            var e_id = '#' + s_value + '-' + a_value + '-' + unit_id
-              , e_value = lv1[a_index]
+          */
+        for (i = 0; i < il; i++) {
+          var data = []
+          for (j = 0; j < jl; j++) {
+            var s_id = '#' + s_stat[i] + '-' + s_attr[j] + '-' + unit_id
+              , s_lv1 = lv1[j]
+              , s_mul = multiplier[j]
+              , s_value = s_lv1
 
-            switch (s_value) {
+            switch (s_stat[i]) {
               case 'base':
                 break;
               case 'type':
-                e_value *= multiplier[a_index]
+                s_value *= s_mul
                 break;
               case 'cool':
-                e_value *= 2.5
+                s_value *= 2.5
                 break;
               case 'stat':
-                e_value *= multiplier[a_index] * 2.5
+                s_value *= 2.5 * s_mul
                 break;
               case 'max':
-                e_value *= multiplier[a_index] * 2.5
-                e_value += (lv1[a_index] / 2)
+                s_value *= 2.5 * s_mul
+                s_value += (s_lv1 / 2)
                 break;
             }
-            temp.push([e_id, e_value])
-            $(e_id).html(Math.floor(e_value))
-          })
-          temp.sort(function(a, b) {return b[1] - a[1]})
-          setStatColor(temp)
-        })
+            var v = Math.floor(s_value)
+            data.push([s_id, v])
+            $(s_id).html(v)
+          }
+          setStatColor(data)
+        }
       }
     }
 
