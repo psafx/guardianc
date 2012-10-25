@@ -21,8 +21,7 @@ body {
 }
 
 .logo {
-  padding: 5px 0 1px;
-  margin-top: 5px;
+  height: 125px;
   text-align: center;
   background-color: #000;
 }
@@ -161,10 +160,6 @@ body {
   line-height: 20px;
   color: #0e385f;
   background-color: #d8dfea;
-}
-
-.header {
-  margin-top: 5px;
 }
 
 .social,
