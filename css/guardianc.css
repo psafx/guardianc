@@ -6,13 +6,14 @@ body {
   color: #111;
 }
 
-.clearfix:after {
-  display: block;
-  height: 0;
+.group:before,
+.group:after {
+  display: table;
+  content: "";
+}
+
+.group:after {
   clear: both;
-  font-size: 0;
-  content: ".";
-  visibility: hidden;
 }
 
 .container {
@@ -217,6 +218,13 @@ body {
   }
   .first {
     margin-right: 0!important;
+  }
+  .legend dl,
+  .version-info {
+    margin-left: 10px!important;
+  }
+  .links ul {
+    padding-left: 10px!important;
   }
   .unit-2 {
     margin-left: 0!important;
