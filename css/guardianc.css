@@ -39,11 +39,11 @@ body {
 }
 
 .first {
-  margin-left: 0!important;
+  margin-left: 0;
 }
 
 .last {
-  margin-right: 0!important;
+  margin-right: 0;
 }
 
 .select-row {
@@ -101,7 +101,7 @@ body {
   line-height: 14px;
   color: #333;
   text-align: center;
-  background-color: #fff!important;
+  background-color: #fff;
 }
 
 .base {
@@ -141,15 +141,15 @@ body {
 
 .best-1 {
   font-weight: 700;
-  color: #2bad4a!important;
+  color: #2bad4a;
 }
 
 .best-2 {
-  color: #2bad4a!important;
+  color: #2bad4a;
 }
 
 .worst-1 {
-  color: #d8503e!important;
+  color: #d8503e;
 }
 
 .link-header {
@@ -214,17 +214,17 @@ body {
     width: 272px;
   }
   .first {
-    margin-right: 0!important;
+    margin-right: 0;
   }
   .legend dl,
   .version-info {
-    margin-left: 10px!important;
+    margin-left: 10px;
   }
   .links ul {
-    padding-left: 10px!important;
+    padding-left: 10px;
   }
   .unit-2 {
-    margin-left: 0!important;
+    margin-left: 0;
   }
   .unit-3,
   .unit-4 {
@@ -237,7 +237,7 @@ body {
     width: 554px;
   }
   .unit-2 {
-    margin-right: 0!important;
+    margin-right: 0;
   }
   .unit-3,
   .unit-4 {
@@ -250,7 +250,7 @@ body {
     width: 836px;
   }
   .unit-3 {
-    margin-right: 0!important;
+    margin-right: 0;
   }
   .unit-4 {
     display: none;
