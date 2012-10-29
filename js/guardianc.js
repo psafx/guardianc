@@ -139,7 +139,7 @@ var s_stat = [ "base"
              , {"id":"40015", "name":"Almighty Leviathan", "lv1":"1090 1066 1260 1129 981 947"}
              , {"id":"40016", "name":"Almighty Titan", "lv1":"1400 1025 1070 1060 910 910"}
              , {"id":"40017", "name":"Apsara", "lv1":"914 1170 912 910 1062 1130"}
-             , {"id":"40018", "name":"Stymphalian Bird", "lv1":"1023 910 1037 1003 1127 912"}
+             , {"id":"40018", "name":"Stymphalian Bird", "lv1":"1023 910 1037 1004 1127 912"}
              , {"id":"40019", "name":"Azi Dahaka", "lv1":"1140 1030 1060 913 911 1070"}
              , {"id":"40020", "name":"Gargantua", "lv1":"1210 914 1200 1020 915 940"}
              , {"id":"40021", "name":"Shiva", "lv1":"1083 1183 1002 1028 985 1200"}
@@ -159,9 +159,9 @@ var s_stat = [ "base"
              , {"id":"40067", "name":"Almighty Pumpkin Chuckin' Titan", "lv1":"1500 1025 1070 1060 910 910"}
              , {"id":"40068", "name":"Mighty Pumpkin Chuckin' Titan", "lv1":"1230 1025 1070 1060 910 910"}
              , {"id":"40069", "name":"Great Pumpkin Chuckin' Titan", "lv1":"1080 1025 1070 1060 910 910"}
-             , {"id":"40072", "name":"Almighty Banshee Witch", "lv1":"1188 1106 966 1001 1005 1188"}
-             , {"id":"40073", "name":"Mighty Banshee Witch", "lv1":"1075 1106 966 1001 1005 1099"}
-             , {"id":"40074", "name":"Great Banshee Witch", "lv1":"961 1106 966 1001 1005 1060"}
+             , {"id":"40072", "name":"Almighty Banshee Witch", "lv1":"1117 930 966 1001 1005 1200"}
+             , {"id":"40073", "name":"Mighty Banshee Witch", "lv1":"1047 930 966 1001 1005 1099"}
+             , {"id":"40074", "name":"Great Banshee Witch", "lv1":"998 930 966 1001 1005 965"}
              , {"id":"30001", "name":"Suzaku", "lv1":"794 898 830 866 912 892"}
              , {"id":"30003", "name":"Kraken", "lv1":"830 720 915 800 760 780"}
              , {"id":"30004", "name":"Genbu", "lv1":"868 902 810 940 830 880"}
