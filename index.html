@@ -32,18 +32,27 @@
   }
 </script>
 <![endif]-->
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35429216-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
   </head>
   <body>
-    <div id="fb-root"></div>
-<script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="container">
       <div class="logo">
         <img src="img/guardian-cross-logo.png" width="250" height="125" alt="Guardian Cross">
@@ -447,7 +456,7 @@
         </div>
       </div>
       <div class="social">
-        <div class="fb-like" data-href="http://psafx.github.com/guardianc" data-send="false" data-width="280" data-show-faces="false"></div>
+        <div class="fb-like" data-href="http://psafx.github.com/guardianc" data-send="true" data-width="280" data-show-faces="false" data-font="tahoma"></div>
       </div>
       <div class="legend">
         <div class="link-header">Legend</div>
@@ -473,7 +482,7 @@
       <div class="about">
         <div class="link-header">About - Guardian Stat Info</div>
         <div class="version-info">
-          Version 2.33, by <a href="http://facebook.com/psafx">Prasong Aroonruviwat</a>
+          Version 2.34, by <a href="http://facebook.com/psafx">Prasong Aroonruviwat</a>
         </div>
       </div>
     </div>
@@ -481,17 +490,5 @@
 <script>!window.jQuery && document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
 <script src="js/chosen.jquery.min.js"></script>
 <script src="js/guardianc.min.js"></script>
-<script>
-  // Google Analytics
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35429216-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
   </body>
 </html>
