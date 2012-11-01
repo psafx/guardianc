@@ -139,7 +139,7 @@ var s_stat = [ "base"
              , {"id":"40010", "name":"Mephistopheles", "lv1":"900 1138 940 950 976 1050"}
              , {"id":"40011", "name":"Phoenix", "lv1":"952 934 980 1020 1084 1016"}
              , {"id":"40012", "name":"Valkyrie", "lv1":"912 1061 980 976 1039 1077"}
-             , {"id":"40013", "name":"Loard of the Inforno", "lv1":"1030 1005 1069 1051 957 946"}
+             , {"id":"40013", "name":"Lord of the Inferno", "lv1":"1030 1005 1069 1051 957 946"}
              , {"id":"40014", "name":"Midgardsormr", "lv1":"1030 1005 1069 1051 957 946"}
              , {"id":"40015", "name":"Almighty Leviathan", "lv1":"1090 1066 1260 1129 981 947"}
              , {"id":"40016", "name":"Almighty Titan", "lv1":"1400 1025 1070 1060 910 910"}
