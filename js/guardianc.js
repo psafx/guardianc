@@ -219,7 +219,7 @@ var s_stat = [ "base"
           options[options.length] = new Option(g_type[i].id, g_type[i].id)
         }
       }
-      select.trigger('liszt:updated')
+      select.trigger('change')
     }
 
   , sortGuardianName = function(unit_id) {
@@ -273,7 +273,7 @@ var s_stat = [ "base"
       for (i = 0, il = data.length; i < il; i++) {
         options[options.length] = new Option(data[i][2], data[i][0])
       }
-      select.trigger('liszt:updated')
+      select.trigger('change').select2('focus')
     }
 
   , getStat = function(unit_id) {
@@ -346,36 +346,32 @@ var s_stat = [ "base"
       }
     }
 
-  , changeSort = function(unit_id) {
-      sortGuardianName(unit_id)
-      clearStat(unit_id, '0')
-    }
-
   , g_sort_change = function(event) {
-      changeSort(event.data.unit_id)
+      sortGuardianName(event.data.unit_id)
+      clearStat(event.data.unit_id, '0')
     }
 
   , g_change = function(event) {
       getStat(event.data.unit_id)
     }
 
-$('#star-1').chosen({disable_search_threshold: 4}).change({unit_id: '1'}, g_sort_change)
-$('#name-1').chosen().change({unit_id: '1'}, g_change)
-$('#type-1').chosen({disable_search_threshold: 9}).change({unit_id: '1'}, g_change)
-$('#sort-1').chosen({disable_search_threshold: 7}).change({unit_id: '1'}, g_sort_change)
 sortGuardianName('1', '0')
-$('#star-2').chosen({disable_search_threshold: 4}).change({unit_id: '2'}, g_sort_change)
-$('#name-2').chosen().change({unit_id: '2'}, g_change)
-$('#type-2').chosen({disable_search_threshold: 9}).change({unit_id: '2'}, g_change)
-$('#sort-2').chosen({disable_search_threshold: 7}).change({unit_id: '2'}, g_sort_change)
+$('#star-1').select2({minimumResultsForSearch: 6}).on('change', {unit_id: '1'}, g_sort_change)
+$('#name-1').select2().on('change', {unit_id: '1'}, g_change)
+$('#type-1').select2({minimumResultsForSearch: 10}).on('change', {unit_id: '1'}, g_change)
+$('#sort-1').select2({minimumResultsForSearch: 8}).on('change', {unit_id: '1'}, g_sort_change)
 sortGuardianName('2', '0')
-$('#star-3').chosen({disable_search_threshold: 4}).change({unit_id: '3'}, g_sort_change)
-$('#name-3').chosen().change({unit_id: '3'}, g_change)
-$('#type-3').chosen({disable_search_threshold: 9}).change({unit_id: '3'}, g_change)
-$('#sort-3').chosen({disable_search_threshold: 7}).change({unit_id: '3'}, g_sort_change)
+$('#star-2').select2({minimumResultsForSearch: 6}).on('change', {unit_id: '2'}, g_sort_change)
+$('#name-2').select2().on('change', {unit_id: '2'}, g_change)
+$('#type-2').select2({minimumResultsForSearch: 10}).on('change', {unit_id: '2'}, g_change)
+$('#sort-2').select2({minimumResultsForSearch: 8}).on('change', {unit_id: '2'}, g_sort_change)
 sortGuardianName('3', '0')
-$('#star-4').chosen({disable_search_threshold: 4}).change({unit_id: '4'}, g_sort_change)
-$('#name-4').chosen().change({unit_id: '4'}, g_change)
-$('#type-4').chosen({disable_search_threshold: 9}).change({unit_id: '4'}, g_change)
-$('#sort-4').chosen({disable_search_threshold: 7}).change({unit_id: '4'}, g_sort_change)
+$('#star-3').select2({minimumResultsForSearch: 6}).on('change', {unit_id: '3'}, g_sort_change)
+$('#name-3').select2().on('change', {unit_id: '3'}, g_change)
+$('#type-3').select2({minimumResultsForSearch: 10}).on('change', {unit_id: '3'}, g_change)
+$('#sort-3').select2({minimumResultsForSearch: 8}).on('change', {unit_id: '3'}, g_sort_change)
 sortGuardianName('4', '0')
+$('#star-4').select2({minimumResultsForSearch: 6}).on('change', {unit_id: '4'}, g_sort_change)
+$('#name-4').select2().on('change', {unit_id: '4'}, g_change)
+$('#type-4').select2({minimumResultsForSearch: 10}).on('change', {unit_id: '4'}, g_change)
+$('#sort-4').select2({minimumResultsForSearch: 8}).on('change', {unit_id: '4'}, g_sort_change)

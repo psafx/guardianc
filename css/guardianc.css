@@ -53,8 +53,9 @@ body {
 .select-header {
   float: left;
   width: 74px;
-  height: 25px;
+  height: 26px;
   font-weight: 700;
+  line-height: 24px;
   color: #333;
 }
 
