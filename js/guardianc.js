@@ -33,7 +33,9 @@ var s_stat = [ "base"
                , "40040"
                ]
 
-  , g_name_6 = [ "40022"
+  , g_name_6 = [ "40041"
+               , "40042"
+               , "40022"
                , "40017"
                , "40019"
                , "40072"
@@ -167,7 +169,8 @@ var s_stat = [ "base"
              , {"id":"40072", "name":"Almighty Banshee Witch", "lv1":"1117 930 966 1001 1005 1200"}
              , {"id":"40073", "name":"Mighty Banshee Witch", "lv1":"1047 930 966 1001 1005 1099"}
              , {"id":"40074", "name":"Great Banshee Witch", "lv1":"998 930 966 1001 1005 965"}
-             , {"id":"40081", "name":"Archfiend Aji Dahaja", "lv1":"1 1 1 1 1 1"}
+             , {"id":"40041", "name":"Archfiend Azi Dahaka", "lv1":"10 1030 1600 913 1250 1600"}
+             , {"id":"40042", "name":"Highfiend Azi Dahaka", "lv1":"10 1030 1200 913 1000 1200"}
              , {"id":"30001", "name":"Suzaku", "lv1":"794 898 830 866 912 892"}
              , {"id":"30003", "name":"Kraken", "lv1":"830 720 915 800 760 780"}
              , {"id":"30004", "name":"Genbu", "lv1":"868 902 810 940 830 880"}
@@ -317,7 +320,7 @@ var s_stat = [ "base"
           for (j = 0; j < jl; j++) {
             var s_id = '#' + s_stat[i] + '-' + s_attr[j] + '-' + unit_id
               , s_lv1 = lv1[j]
-              , s_mul = multiplier[j]
+              , s_mul = parseFloat(multiplier[j])
               , s_value = s_lv1
 
             switch (s_stat[i]) {
@@ -330,10 +333,10 @@ var s_stat = [ "base"
                 s_value *= 2.5
                 break
               case 'stat':
-                s_value *= 2.5 * s_mul
+                s_value = Math.floor(s_lv1 * 2.5) * s_mul
                 break
               case 'max':
-                s_value *= 2.5 * s_mul
+                s_value = Math.floor(s_lv1 * 2.5) * s_mul
                 s_value += (s_lv1 / 2)
                 break
             }
