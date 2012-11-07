@@ -152,7 +152,7 @@ var s_stat = [ "base"
              , {"id":"40021", "name":"Shiva", "lv1":"1083 1183 1002 1028 985 1200"}
              , {"id":"40022", "name":"Atlas", "lv1":"1160 930 1150 1090 967 911"}
              , {"id":"40023", "name":"Raijin", "lv1":"1110 980 1120 1020 1030 980"}
-             , {"id":"40024", "name":"Fujin", "lv1":"1010 1020 1030 1030 950 1020"}
+             , {"id":"40024", "name":"Fujin", "lv1":"1060 1070 1080 1080 997 1070"}
              , {"id":"40025", "name":"Frankenstein", "lv1":"1130 911 1130 1100 955 970"}
              , {"id":"40026", "name":"Almighty Frankenstein", "lv1":"1130 911 1130 1100 955 970"}
              , {"id":"40027", "name":"Mighty Frankenstein", "lv1":"1130 911 1130 1100 955 970"}
@@ -337,7 +337,7 @@ var s_stat = [ "base"
                 break
               case 'max':
                 s_value = Math.floor(s_lv1 * 2.5) * s_mul
-                s_value += (s_lv1 / 2)
+                s_value += Math.floor(s_lv1 / 2)
                 break
             }
             var v = Math.floor(s_value)
