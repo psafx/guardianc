@@ -161,6 +161,8 @@ var s_stat = [ "base"
              , {"id":"40030", "name":"Bahamut", "lv1":"1000 1006 1111 954 999 1028"}
              , {"id":"40039", "name":"Almighty Valkyrie", "lv1":"957 1114 1029 1024 1090 1130"}
              , {"id":"40040", "name":"Mighty Valkyrie", "lv1":"930 1082 999 995 1059 1098"}
+             , {"id":"40041", "name":"Archfiend Azi Dahaka", "lv1":"10 1030 1600 913 1250 1600"}
+             , {"id":"40042", "name":"Highfiend Azi Dahaka", "lv1":"10 1030 1200 913 1000 1200"}
              , {"id":"40059", "name":"Mighty Leviathan", "lv1":"1025 1015 1154 1080 900 920"}
              , {"id":"40062", "name":"Mighty Titan", "lv1":"1200 1025 1070 1060 910 910"}
              , {"id":"40067", "name":"Almighty Pumpkin Chuckin' Titan", "lv1":"1500 1025 1070 1060 910 910"}
@@ -169,8 +171,8 @@ var s_stat = [ "base"
              , {"id":"40072", "name":"Almighty Banshee Witch", "lv1":"1117 930 966 1001 1005 1200"}
              , {"id":"40073", "name":"Mighty Banshee Witch", "lv1":"1047 930 966 1001 1005 1099"}
              , {"id":"40074", "name":"Great Banshee Witch", "lv1":"998 930 966 1001 1005 965"}
-             , {"id":"40041", "name":"Archfiend Azi Dahaka", "lv1":"10 1030 1600 913 1250 1600"}
-             , {"id":"40042", "name":"Highfiend Azi Dahaka", "lv1":"10 1030 1200 913 1000 1200"}
+             , {"id":"40080", "name":"Almighty Apsara", "lv1":"1000 1000 1000 1000 1000 1000"}
+             , {"id":"40081", "name":"Mighty Apsara", "lv1":"1000 1000 1000 1000 1000 1000"}
              , {"id":"30001", "name":"Suzaku", "lv1":"794 898 830 866 912 892"}
              , {"id":"30003", "name":"Kraken", "lv1":"830 720 915 800 760 780"}
              , {"id":"30004", "name":"Genbu", "lv1":"868 902 810 940 830 880"}
