@@ -309,7 +309,7 @@ var s_stat = [ "base"
         }
       }
       if (stat_lv1 !== '') {
-        for (var j = 0; j < 7; j++) {
+        for (var j = 0; j < 8; j++) {
           if (t_id == g_type[j].id) {
             stat_multiplier = g_type[j].stat
           }
