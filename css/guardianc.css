@@ -184,24 +184,25 @@ body {
   margin-bottom: 10px;
 }
 
-.legend dl {
-  margin: 0 0 0 40px;
-  font-size: 12px;
+.legend ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
 }
 
-.legend dt {
+.dt {
   float: left;
   width: 69px;
   clear: left;
 }
 
-.legend dd {
+.dd {
   float: left;
-  margin: 0;
 }
 
 .links ul {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   list-style: none;
 }
 
@@ -217,10 +218,10 @@ body {
   .first {
     margin-right: 0;
   }
-  .legend dl,
   .version-info {
     margin-left: 10px;
   }
+  .legend ul,
   .links ul {
     padding-left: 10px;
   }

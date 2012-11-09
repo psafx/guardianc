@@ -309,7 +309,7 @@ var s_stat = [ "base"
         }
       }
       if (stat_lv1 !== '') {
-        for (var j = 0, jl = g_type.length; j < jl; j++) {
+        for (var j = 0; j < 7; j++) {
           if (t_id == g_type[j].id) {
             stat_multiplier = g_type[j].stat
           }
@@ -317,9 +317,9 @@ var s_stat = [ "base"
         var lv1 = stat_lv1.split(' ')
           , multiplier = stat_multiplier.split(' ')
 
-        for (i = 0; i < il; i++) {
+        for (i = 0; i < 5; i++) {
           var data = []
-          for (j = 0; j < jl; j++) {
+          for (j = 0; j < 6; j++) {
             var s_id = '#' + s_stat[i] + '-' + s_attr[j] + '-' + unit_id
               , s_lv1 = lv1[j]
               , s_mul = parseFloat(multiplier[j])
