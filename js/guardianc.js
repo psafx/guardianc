@@ -67,6 +67,8 @@ var s_stat = [ "base"
                , "40034"
                , "40011"
                , "40023"
+               , "40060"
+               , "40061"
                , "40018"
                , "40021"
                , "40003"
@@ -182,6 +184,8 @@ var s_stat = [ "base"
              , {"id":"40057", "name":"Almighty Atlas", "lv1":"1160 1040 1150 1090 913 1250"}
              , {"id":"40058", "name":"Mighty Atlas", "lv1":"1160 1040 1150 1090 913 1100"}
              , {"id":"40059", "name":"Mighty Leviathan", "lv1":"1025 1015 1154 1080 900 920"}
+             , {"id":"40060", "name":"Almighty Raijin", "lv1":"1165 1029 1176 1071 1400 1060"}
+             , {"id":"40061", "name":"Mighty Raijin", "lv1":"1110 980 1120 1020 1320 980"}
              , {"id":"40062", "name":"Mighty Titan", "lv1":"1200 1025 1070 1060 910 910"}
              , {"id":"40067", "name":"Almighty Pumpkin Chuckin' Titan", "lv1":"1500 1025 1070 1060 910 910"}
              , {"id":"40068", "name":"Mighty Pumpkin Chuckin' Titan", "lv1":"1230 1025 1070 1060 910 910"}
