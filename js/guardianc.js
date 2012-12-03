@@ -227,6 +227,8 @@ var s_stat = [ "base"
              , {"id":"40060", "name":"Almighty Raijin", "lv1":"1165 1029 1176 1071 1400 1060"}
              , {"id":"40061", "name":"Mighty Raijin", "lv1":"1110 980 1120 1020 1320 1010"}
              , {"id":"40062", "name":"Mighty Titan", "lv1":"1200 1025 1070 1060 910 910"}
+             , {"id":"40063", "name":"- Almighty Vampire Matron", "lv1":"1350 1007 980 960 1008 1002"}
+             , {"id":"40064", "name":"- Mighty Vampire Matron", "lv1":"1200 1007 980 960 1008 1002"}
              , {"id":"40067", "name":"Almighty Pumpkin Chuckin' Titan", "lv1":"1500 1025 1070 1060 910 910"}
              , {"id":"40068", "name":"Mighty Pumpkin Chuckin' Titan", "lv1":"1230 1025 1070 1060 910 910"}
              , {"id":"40069", "name":"Great Pumpkin Chuckin' Titan", "lv1":"1080 1025 1070 1060 910 910"}
