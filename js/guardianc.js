@@ -262,7 +262,7 @@ var s_stat = [ "base"
              , {"id":"40033", "name":"Almighty Mephistopheles", "lv1":"945 1194 987 997 1024 1102"}
              , {"id":"40034", "name":"Mighty Mephistopheles", "lv1":"918 1160 958 969 995 1071"}
              , {"id":"40035", "name":"Almighty Gargantua", "lv1":"1400 1005 1280 1122 956 1034"}
-             , {"id":"40036", "name":"Mighty Gargantua", "lv1":"1210 1020 1200 1020 915 940"}
+             , {"id":"40036", "name":"Mighty Gargantua", "lv1":"1320 914 1220 1020 956 1020"}
              , {"id":"40037", "name":"Iron Maiden", "lv1":"1058 988 1099 1037 944 932 6058"}
              , {"id":"40038", "name":"Requiem Banshee", "lv1":"961 1106 966 1001 1005 1099"}
              , {"id":"40039", "name":"Almighty Valkyrie", "lv1":"957 1114 1029 1024 1090 1130"}
