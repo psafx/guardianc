@@ -55,6 +55,9 @@ var s_stat = [ "base"
                , "40106"
                , "40107"
                , "40108"
+               , "40070"
+               , "40071"
+               , "40156"
                , "40033"
                , "40034"
                , "40031"
@@ -133,6 +136,9 @@ var s_stat = [ "base"
                , "40107"
                , "40108"
                , "40004"
+               , "40070"
+               , "40071"
+               , "40156"
                , "40010"
                , "40033"
                , "40034"
@@ -323,6 +329,8 @@ var s_stat = [ "base"
              , {"id":"40067", "name":"Almighty Pumpkin Chuckin' Titan", "lv1":"1500 1025 1070 1060 910 910"}
              , {"id":"40068", "name":"Mighty Pumpkin Chuckin' Titan", "lv1":"1230 1025 1070 1060 910 910"}
              , {"id":"40069", "name":"Great Pumpkin Chuckin' Titan", "lv1":"1080 1025 1070 1060 910 910"}
+             , {"id":"40070", "name":"Almighty Lord of the Inferno", "lv1":"1320 1005 1069 1414 957 1200"}
+             , {"id":"40071", "name":"Mighty Lord of the Inferno", "lv1":"1240 1005 1069 1350 957 1150"}
              , {"id":"40072", "name":"Almighty Banshee Witch", "lv1":"1117 930 966 1001 1005 1200"}
              , {"id":"40073", "name":"Mighty Banshee Witch", "lv1":"1047 930 966 1001 1005 1099"}
              , {"id":"40074", "name":"Great Banshee Witch", "lv1":"998 930 966 1001 1005 965"}
@@ -362,6 +370,7 @@ var s_stat = [ "base"
              , {"id":"40150", "name":"Almighty Valentine Specter", "lv1":"1360 2680 990 990 1280 1184"}
              , {"id":"40151", "name":"Mighty Valentine Specter", "lv1":"1160 2000 990 990 1130 1084"}
              , {"id":"40152", "name":"Great Valentine Specter", "lv1":"1040 1520 990 896 1060 1084"}
+             , {"id":"40156", "name":"Great Lord of the Inferno", "lv1":"1160 1005 1069 1300 957 1100"}
              , {"id":"30001", "name":"Suzaku", "lv1":"794 898 830 866 912 892"}
              , {"id":"30003", "name":"Kraken", "lv1":"830 720 915 800 760 780"}
              , {"id":"30004", "name":"Genbu", "lv1":"868 902 810 940 830 880"}
